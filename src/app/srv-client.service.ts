@@ -1,10 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-<<<<<<< HEAD
 import { Client } from './client';
-=======
+
 import { environment } from 'src/environments/environment';
->>>>>>> f243bf01dd7509d66c30f850178cc411ec9d5d71
+
 
 @Injectable({
   providedIn: 'root',
@@ -13,13 +12,10 @@ export class SrvClientService {
   lst: any;
   client: any;
 
-<<<<<<< HEAD
-  lst: any
+ 
  
 
-=======
   constructor(private http: HttpClient) {}
->>>>>>> f243bf01dd7509d66c30f850178cc411ec9d5d71
 
   getliste() {
     return this.http
@@ -108,6 +104,27 @@ export class SrvClientService {
         // code here is executed on success
       })
       .catch();
+  }
+
+ async update(id:number, client:any ) {
+
+    let c = await this.getById(id)
+
+      return this.http
+      .put<Client>(
+        `${environment.apiUrl}/clients/${id}`,
+        JSON.stringify({...c,...client}),
+        { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
+      )
+      .toPromise()
+      .then((res) => {
+        this.client = res;
+        localStorage.setItem("client",JSON.stringify(this.client))
+        return this.client;
+        // code here is executed on success
+      })
+      .catch();
+
   }
  
 }

@@ -3,8 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SrvClientService } from '../srv-client.service';
 import { Client } from '../client';
+import { environment } from 'src/environments/environment';
 
-import { EnvironementsModule } from '../environements/environements.module';
+
 
 @Component({
   selector: 'app-client-edit',
@@ -17,41 +18,15 @@ export class ClientEditComponent implements OnInit {
   message = '';
 
   constructor(
-    private http: HttpClient, private route: ActivatedRoute
+    private srv: SrvClientService, private route: ActivatedRoute
   ) {}
   ngOnInit() {
-    this.route.params.subscribe((params) => {
-      this.id = params['id'];
-    });
-    this.findById();
-  }
-
-  findById() {
-    this.http
-      .get<Client>(`${EnvironementsModule.apiUrl}/${this.id}`)
-      .subscribe((response) => {
-        this.client = response;
-      });
+    this.client=JSON.parse(localStorage.getItem("client"))
+    this.srv.getById(this.client.id)
+  
   }
 
   update() {
-    this.http
-      .put<Client>(
-        `${EnvironementsModule.apiUrl}`,
-        JSON.stringify(this.client),
-        { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
-      )
-      .subscribe(
-        (response) => {
-          this.message = 'Personne Mise à jour';
-          this.findById();
-          console.log(response);
-        },
-        (err) => {
-          this.message = 'erreur : ' + err.message;
-          console.log(err);
-        }
-      );
+    this.srv.update(this.client.id,this.client)
   }
 }
-
