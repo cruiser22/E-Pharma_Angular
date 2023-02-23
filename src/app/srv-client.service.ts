@@ -1,6 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Client } from './client';
+
 import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +11,9 @@ import { environment } from 'src/environments/environment';
 export class SrvClientService {
   lst: any;
   client: any;
+
+ 
+ 
 
   constructor(private http: HttpClient) {}
 
@@ -99,6 +105,28 @@ export class SrvClientService {
       })
       .catch();
   }
+
+ async update(id:number, client:any ) {
+
+    let c = await this.getById(id)
+
+      return this.http
+      .put<Client>(
+        `${environment.apiUrl}/clients/${id}`,
+        JSON.stringify({...c,...client}),
+        { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
+      )
+      .toPromise()
+      .then((res) => {
+        this.client = res;
+        localStorage.setItem("client",JSON.stringify(this.client))
+        return this.client;
+        // code here is executed on success
+      })
+      .catch();
+
+  }
+ 
 }
 
 interface Login {
