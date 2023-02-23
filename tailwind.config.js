@@ -5,19 +5,19 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          50: "#fefce8",
-          100: "#fef9c3",
-          200: "#fef08a",
-          300: "#fde047",
-          400: "#facc15",
-          500: "#eab308",
-          600: "#ca8a04",
-          700: "#a16207",
-          800: "#854d0e",
-          900: "#713f12",
+          100: "#e6efda",
+          200: "#cddfb5",
+          300: "#b4ce90",
+          400: "#9bbe6b",
+          500: "#82ae46",
+          600: "#688b38",
+          700: "#4e682a",
+          800: "#34461c",
+          900: "#1a230e",
         },
       },
       fontFamily: {
+        serif: ["Lora", "serif"],
         body: [
           "Inter",
           "ui-sans-serif",
