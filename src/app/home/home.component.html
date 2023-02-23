@@ -1,0 +1,125 @@
+<div class="h-[80vh] relative">
+  <div
+    class="relative z-10 flex items-center justify-center h-full p-2 flex-col gap-8"
+  >
+    <p
+      class="text-white font-semibold text-4xl md:w-2/3 text-center md:text-5xl lg:text-6xl lg:leading-normal"
+    >
+      Trouvez les soins dont vous avez besoin en un clic avec notre
+      <span class="text-primary-500">pharmacie</span> en ligne de
+      <span class="text-primary-500">confiance</span>.
+    </p>
+    <button
+      class="p-5 bg-primary-500 rounded-md text-white font-semibold border-2 transition ease-out duration-500 border-primary-500 uppercase min-w-[200px] hover:bg-transparent hover:text-primary-500"
+    >
+      Voir plus
+    </button>
+  </div>
+  <img
+    src="/assets/img/carousel1.jpg"
+    class="h-full w-full object-cover absolute top-0 left-0 filter brightness-[0.25]"
+    alt="image"
+  />
+</div>
+
+<div class="w-full bg-primary-600 md:h-[60vh] flex flex-col md:flex-row">
+  <div class="w-full h-1/2 md:w-1/2 md:h-full">
+    <img src="/assets/img/carousel3.jpg" class="object-cover h-full w-full" />
+  </div>
+  <div
+    class="flex flex-col mt-5 md:p-10 gap-8 w-100 p-5 md:mt-0 md:w-1/2 md:items-left md:justify-center"
+  >
+    <h2
+      class="text-4xl text-center md:text-left lg:text-6xl font-semibold uppercase tracking-wide text-white"
+    >
+      Pourquoi EPHARMA?
+    </h2>
+    <p class="leading-relaxed text-white text-2xl">
+      Epharma est une pharmacie en ligne fiable et pratique, proposant une large
+      sélection de produits de santé à des prix compétitifs, avec une livraison
+      rapide et un service clientèle de qualité. Achetez en toute confiance avec
+      Epharma.
+    </p>
+  </div>
+</div>
+<div class="container mx-auto flex items-center justify-evenly pt-20 p-10">
+  <div class="w-40 h-40 flex flex-col items-center justify-center gap-3">
+    <img src="/assets/icons/shipped.png" class="object-contain w-full h-full" />
+    <p class="text-center font-semibold uppercase text-xl">Livraison rapide</p>
+  </div>
+  <div class="w-40 h-40 flex flex-col items-center justify-center gap-3">
+    <img
+      src="/assets/icons/customer-service.png"
+      class="object-contain w-full h-full"
+    />
+    <p class="text-center font-semibold uppercase text-xl">Support 24/7</p>
+  </div>
+  <div class="w-40 h-40 flex flex-col items-center justify-center gap-3">
+    <img src="/assets/icons/advice.png" class="object-contain w-full h-full" />
+    <p class="text-center font-semibold uppercase text-xl">
+      Conseils et informations
+    </p>
+  </div>
+</div>
+<div
+  class="container mx-auto flex flex-col gap-10 items-center justify-center py-20"
+>
+  <p class="font-serif italic text-primary-500 text-xl md:text-3xl">
+    Nouveautées
+  </p>
+  <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-10">
+    Nos derniers produits
+  </h2>
+  <div class="grid lg:grid-cols-3 gap-16">
+    <div
+      *ngFor="let p of produits"
+      class="flex flex-col items-center justify-center border-[1px] border-primary-200 rounded-md p-5 hover:scale-105 transition ease-in-out duration-300 hover:cursor-pointer"
+    >
+      <div class="h-64 w-64">
+        <img
+          src="assets/img/produits/{{ p.image }}"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <h4 class="uppercase font-medium text-xl mb-5">{{ p.nom }}</h4>
+      <p class="font-medium text-xl text-primary-500">{{ p.prix }} €</p>
+    </div>
+  </div>
+</div>
+<div class="w-full bg-primary-600 text-white">
+  <div
+    class="container mx-auto flex flex-col gap-10 items-center justify-center py-20"
+  >
+    <p class="font-serif italic text-xl md:text-3xl">Testimoniaux</p>
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-10">
+      Des clients satisfaits
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      <blockquote
+        *ngFor="let t of testimoniaux"
+        class="p-8 w-full flex flex-col text-center items-center justify-center md:items-start md:flex-start md:text-left"
+      >
+        <div
+          class="flex flex-col items-center justify-center gap-4 md:flex-row"
+        >
+          <img
+            src="/assets/img/ratings/{{ t.image }}"
+            class="h-16 w-16 rounded-full object-cover"
+          />
+
+          <div class="text">
+            <p class="font-medium">{{ t.nom }} {{ t.prenom.charAt(0) }}.</p>
+          </div>
+        </div>
+
+        <p class="relative mt-4">
+          <span class="text-xl">&ldquo;</span>
+
+          {{ t.message }}
+
+          <span class="text-xl">&rdquo;</span>
+        </p>
+      </blockquote>
+    </div>
+  </div>
+</div>
