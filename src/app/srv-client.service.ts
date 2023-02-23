@@ -38,8 +38,55 @@ export class SrvClientService {
   login({ email, password }: Login) {
     return this.http
       .post(
-        `${environment.apiUrl}/clients/connexion`,
+        `${environment.apiUrl}/clients/login`,
         JSON.stringify({ email, password }),
+        {
+          headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+        }
+      )
+      .toPromise()
+      .then((res) => {
+        this.client = res;
+        return this.client;
+        // code here is executed on success
+      })
+      .catch();
+  }
+
+  signup({ email, password }: Login) {
+    return this.http
+      .post(
+        `${environment.apiUrl}/clients`,
+        JSON.stringify({ email, password }),
+        {
+          headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+        }
+      )
+      .toPromise()
+      .then((res) => {
+        this.client = res;
+        return this.client;
+      })
+      .catch();
+  }
+
+  getById(id: number) {
+    return this.http
+      .get(`${environment.apiUrl}/clients/${id}`)
+      .toPromise()
+      .then((res) => {
+        return res;
+      })
+      .catch();
+  }
+  async addMoreInfo({ id, nom, prenom, adresse }: MoreInfo) {
+    let client = await this.getById(id);
+    console.log('getByid', client);
+
+    return this.http
+      .put(
+        `${environment.apiUrl}/clients/${id}`,
+        JSON.stringify({ ...client, nom, prenom, adresse }),
         {
           headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
         }
@@ -57,4 +104,11 @@ export class SrvClientService {
 interface Login {
   email: string;
   password: string;
+}
+
+interface MoreInfo {
+  id: number;
+  nom: string;
+  prenom: string;
+  adresse: string;
 }

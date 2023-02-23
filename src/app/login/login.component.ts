@@ -8,7 +8,6 @@ import { SrvClientService } from '../srv-client.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  client: any;
   loginForm = { email: '', password: '' };
   logged: boolean = false;
   response: any = { error: false, message: '' };
@@ -28,7 +27,6 @@ export class LoginComponent {
         this.response.error = false;
         localStorage.setItem('client', JSON.stringify(this.response));
         this.router.navigate(['/']);
-        console.log(x);
       })
       .catch((err) => {
         this.response.error = true;

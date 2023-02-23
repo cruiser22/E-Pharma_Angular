@@ -1,1 +1,126 @@
 <p>signup works!</p>
+<div class="container p-4 mx-auto">
+  <div
+    class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0"
+  >
+    <div class="w-full bg-white rounded-lg shadow mt-0 sm:max-w-md xl:p-0">
+      <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+        <h1
+          class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl"
+        >
+          Creez votre compte
+        </h1>
+        <div *ngIf="!displayMoreInfo" class="space-y-4 md:space-y-6" action="#">
+          <div>
+            <label
+              for="email"
+              class="block mb-2 text-sm font-medium text-gray-900"
+              >Votre email</label
+            >
+            <input
+              type="email"
+              id="email"
+              class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+              placeholder="nom@email.com"
+              required=""
+              [(ngModel)]="signUpForm.email"
+            />
+          </div>
+          <div>
+            <label
+              for="password"
+              class="block mb-2 text-sm font-medium text-gray-900"
+              >Votre mot de passe</label
+            >
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="••••••••"
+              class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+              required=""
+              [(ngModel)]="signUpForm.password"
+            />
+          </div>
+          <button
+            type="submit"
+            class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            (click)="signUp()"
+          >
+            Continuer
+          </button>
+          <div
+            *ngIf="response.error"
+            class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+            role="alert"
+          >
+            <strong class="font-bold">Erreur: </strong>
+            <span class="block sm:inline">{{ response.message }}</span>
+          </div>
+        </div>
+        <div *ngIf="displayMoreInfo" class="space-y-4 md:space-y-6" action="#">
+          <div>
+            <label
+              for="nom"
+              class="block mb-2 text-sm font-medium text-gray-900"
+              >Votre nom</label
+            >
+            <input
+              type="text"
+              id="nom"
+              class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+              placeholder="Durand"
+              required=""
+              [(ngModel)]="moreInfo.nom"
+            />
+          </div>
+          <div>
+            <label
+              for="prenom"
+              class="block mb-2 text-sm font-medium text-gray-900"
+              >Votre prenom</label
+            >
+            <input
+              type="text"
+              id="prenom"
+              class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+              placeholder="Jean"
+              required=""
+              [(ngModel)]="moreInfo.prenom"
+            />
+          </div>
+          <div>
+            <label
+              for="adresse"
+              class="block mb-2 text-sm font-medium text-gray-900"
+              >Votre adresse</label
+            >
+            <input
+              type="text"
+              id="adresse"
+              class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+              placeholder="2 rue de la Concorde, 75015 Paris"
+              required=""
+              [(ngModel)]="moreInfo.adresse"
+            />
+          </div>
+          <button
+            type="submit"
+            class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            (click)="addMoreInfo()"
+          >
+            Terminer
+          </button>
+          <div
+            *ngIf="response.error"
+            class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+            role="alert"
+          >
+            <strong class="font-bold">Erreur: </strong>
+            <span class="block sm:inline">{{ response.message }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
