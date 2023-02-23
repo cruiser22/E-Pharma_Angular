@@ -19,5 +19,15 @@ export class SrvProduitService {
     })
    .catch();
   }
+
+  getProduit(id:number)
+  {
+    return this.http.get("http://localhost:8080/api/produit/" + id).toPromise().then(res => {
+      this.lst =res;
+     return this.lst;
+      // code here is executed on success
+    })
+   .catch();
+  }
   
 }
