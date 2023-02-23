@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChoixProduitsComponent } from './choix-produits/choix-produits.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { InfosClientComponent } from './infos-client/infos-client.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChoixProduitsComponent
+    ChoixProduitsComponent,
+    InfosClientComponent
   ],
   imports: [
     BrowserModule,
