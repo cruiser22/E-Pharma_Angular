@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AfficherProduitComponent } from './afficher-produit/afficher-produit.component';
 import { ChoixProduitsComponent } from './choix-produits/choix-produits.component';
 import { InfosClientComponent } from './infos-client/infos-client.component';
+import { ClientEditComponent } from './client-edit/client-edit.component';
 import { LoginComponent } from './login/login.component';
 import { ProfilComponent } from './profil/profil.component';
 import { SignupComponent } from './signup/signup.component';
@@ -10,6 +11,7 @@ import { SignupComponent } from './signup/signup.component';
 const routes: Routes = [
   { path: 'choixproduits', component: ChoixProduitsComponent },
   { path: 'infosclient', component: InfosClientComponent },
+  { path: 'edit', component: ClientEditComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'profil', component: ProfilComponent },
