@@ -11,6 +11,7 @@ import { InfosClientComponent } from './infos-client/infos-client.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { ProfilComponent } from './profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SignupComponent } from './signup/signup.component';
     InfosClientComponent,
     AuthentificationComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
