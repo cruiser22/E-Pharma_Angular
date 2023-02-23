@@ -10,13 +10,13 @@ import { ProfilComponent } from './profil/profil.component';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
-  { path: 'choixproduits', component: ChoixProduitsComponent },
-  { path: 'infosclient', component: InfosClientComponent },
+  { path: '', component: HomeComponent },
+  { path: 'shop', component: ChoixProduitsComponent },
+  { path: 'profile', component: InfosClientComponent },
   { path: 'edit', component: ClientEditComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'profil', component: ProfilComponent },
-  { path: '', component: HomeComponent },
   { path: 'afficherproduit', component: AfficherProduitComponent },
 ];
 
