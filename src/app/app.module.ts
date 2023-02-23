@@ -8,12 +8,15 @@ import { AppComponent } from './app.component';
 import { ChoixProduitsComponent } from './choix-produits/choix-produits.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { InfosClientComponent } from './infos-client/infos-client.component';
+import { ClientEditComponent } from './client-edit/client-edit.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ChoixProduitsComponent,
-    InfosClientComponent
+    InfosClientComponent,
+    ClientEditComponent,
   ],
   imports: [
     BrowserModule,

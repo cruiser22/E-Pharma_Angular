@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Client } from './client';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,8 @@ import { Injectable } from '@angular/core';
 export class SrvClientService {
 
   lst: any
+ 
+
 
   constructor(private http:HttpClient) { }
 
@@ -19,4 +22,5 @@ export class SrvClientService {
     })
    .catch();
   }
+ 
 }

@@ -1,0 +1,30 @@
+<p>client-edit works!</p>
+<h2>Edit Client</h2>
+
+<div *ngIf="client">
+  <div>
+    <label>ID:</label>
+    <input type="number" [(ngModel)]="client.id" readonly />
+</div>
+<div>
+    <label>Nom:</label>
+    <input [(ngModel)]="client.nom" placeholder="Nom"/>
+  </div>
+  <div>
+    <label>Prénom:</label>
+    <input [(ngModel)]="client.prenom" placeholder="Prénom"/>
+  </div>
+  <div>
+    <label>Adresse:</label>
+    <input [(ngModel)]="client.adresse" placeholder="Adresse"/>
+  </div>
+  <div>
+    <label>Mot de passe:</label>
+    <input [(ngModel)]="client.pass" placeholder="Mot de passe"/>
+  </div>
+  <div>
+    <button (click)="update()">UPDATE CLIENT</button>
+  </div>
+</div>
+
+  
