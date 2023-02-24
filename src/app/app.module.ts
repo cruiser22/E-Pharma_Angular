@@ -21,6 +21,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { AjouterPanierComponent } from './ajouter-panier/ajouter-panier.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AjouterPanierComponent } from './ajouter-panier/ajouter-panier.componen
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    AjouterPanierComponent
+    AjouterPanierComponent,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,

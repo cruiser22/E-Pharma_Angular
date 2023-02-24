@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AjouterPanierComponent } from './ajouter-panier/ajouter-panier.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'afficherproduit', component: AfficherProduitComponent },
   { path: 'ajouterpanier', component: AjouterPanierComponent },
   { path: 'shop/:id', component: AfficherProduitComponent },
-  { path: 'reset', component: ResetPasswordComponent }
+  { path: 'reset', component: ResetPasswordComponent },
+  { path: 'admin/login', component: AdminLoginComponent }
 ];
 
 @NgModule({
