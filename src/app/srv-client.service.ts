@@ -106,6 +106,8 @@ export class SrvClientService {
       .catch();
   }
 
+  
+
  async update(id:number, client:any ) {
 
     let c = await this.getById(id)
@@ -126,6 +128,13 @@ export class SrvClientService {
       .catch();
 
   }
+
+  updatePassword(id: number, newPassword: string) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const body = { pass: newPassword };
+    return this.http.put<Client>(`${environment.apiUrl}/clients/${id}`, body, { headers }).toPromise();
+  }
+  
  
 }
 
