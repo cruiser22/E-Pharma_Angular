@@ -1,0 +1,40 @@
+<div
+  class="container mx-auto flex flex-col md:flex-row py-3 h-[65vh] space-x-20"
+>
+  <app-admin-navbar></app-admin-navbar>
+  <div>
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="w-full text-sm text-left text-gray-500">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+          <tr>
+            <th scope="col" class="px-6 py-3">Id</th>
+            <th scope="col" class="px-6 py-3">Email</th>
+            <th scope="col" class="px-6 py-3">Nom</th>
+            <th scope="col" class="px-6 py-3">Prenom</th>
+            <th scope="col" class="px-6 py-3">Adresse</th>
+            <th scope="col" class="px-6 py-3">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of clients" class="bg-white border-b">
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+            >
+              {{ c.id }}
+            </th>
+            <td class="px-6 py-4">{{ c.email }}</td>
+            <td class="px-6 py-4">{{ c.nom }}</td>
+            <td class="px-6 py-4">{{ c.prenom }}</td>
+            <td class="px-6 py-4">{{ c.adresse }}</td>
+            <td class="px-6 py-4">
+              <a routerLink="{{ c.id }}" class="font-medium text-primary-600"
+                >Modifier</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

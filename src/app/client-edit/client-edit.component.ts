@@ -5,22 +5,30 @@ import { SrvClientService } from '../srv-client.service';
 import { Client } from '../client';
 import { environment } from 'src/environments/environment';
 
-
-
 @Component({
   selector: 'app-client-edit',
   templateUrl: './client-edit.component.html',
-  styleUrls: ['./client-edit.component.css']
+  styleUrls: ['./client-edit.component.css'],
 })
 export class ClientEditComponent implements OnInit {
   id: number;
-  client : Client = { id: 1, nom: '', prenom: '', pass: '', adresse: '', version: 0 };
+  client: Client = {
+    id: 1,
+    nom: '',
+    prenom: '',
+    pass: '',
+    adresse: '',
+    email: '',
+    version: 0,
+  };
   message = '';
   currentPassword: string;
   newPassword: string;
 
   constructor(
-    private srv: SrvClientService, private route: ActivatedRoute, private router:Router
+    private srv: SrvClientService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
   ngOnInit() {
     let client = localStorage.getItem('client');
@@ -29,16 +37,13 @@ export class ClientEditComponent implements OnInit {
     } else {
       this.client = JSON.parse(client);
       console.log(this.client);
-    }  
-    
-    this.srv.getById(this.client.id)
-    
+    }
+
+    this.srv.getById(this.client.id);
   }
 
   update() {
-    this.srv.update(this.client.id,this.client)
-    
-    
+    this.srv.update(this.client.id, this.client);
   }
   updatePassword() {
     // Vérifier que le mot de passe actuel est correct
@@ -49,15 +54,15 @@ export class ClientEditComponent implements OnInit {
 
     // Mettre à jour le mot de passe du client
     this.client.pass = this.newPassword;
-    this.srv.update(this.client.id, this.client)
-    .then(() => {
+    this.srv.update(this.client.id, this.client).then(
+      () => {
         this.message = 'Mot de passe mis à jour avec succès.';
-      }, () => {
+      },
+      () => {
         this.message = 'Erreur lors de la mise à jour du mot de passe.';
-      });
+      }
+    );
   }
-
-
 
   logout() {
     if (this.client) {
@@ -67,4 +72,3 @@ export class ClientEditComponent implements OnInit {
     }
   }
 }
-
