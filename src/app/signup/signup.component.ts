@@ -48,7 +48,7 @@ export class SignupComponent {
       })
       .then((client) => {
         localStorage.setItem('client', JSON.stringify(client));
-        this.router.navigate(['/']);
+        this.router.navigate(['/profil']);
       });
   }
 }
