@@ -15,6 +15,8 @@ import { AuthentificationComponent } from './authentification/authentification.c
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProfilComponent } from './profil/profil.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
@@ -31,6 +33,8 @@ import { AjouterPanierComponent } from './ajouter-panier/ajouter-panier.componen
     LoginComponent,
     SignupComponent,
     ProfilComponent,
+    ResetPasswordComponent,
+
     HeaderComponent,
     HomeComponent,
     FooterComponent,
