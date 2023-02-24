@@ -16,8 +16,8 @@ const routes: Routes = [
   { path: 'profil', component: ClientEditComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'afficherproduit', component: AfficherProduitComponent },
-  { path: 'reset', component: ResetPasswordComponent }
+  { path: 'shop/:id', component: AfficherProduitComponent },
+  { path: 'reset', component: ResetPasswordComponent },
 ];
 
 @NgModule({

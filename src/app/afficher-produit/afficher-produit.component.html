@@ -1,24 +1,60 @@
-<p>afficher-produit works!</p>
-<div>
-    <p>ID :</p>
-    <input type="number" [(ngModel)] = "id">
-    <button (click)="affiche()">AFFICHER</button>
-</div>
-<div>
-    {{p.id}}
-</div>
-<div>
-    {{p.nom}}
-</div>
-<div>
-    {{p.description}}
-</div>
-<div>
-    {{p.prix}}
-</div>
-<div>
-    {{p.image}}
-</div>
-<div>
-    {{p.categorie}}
+<div class="container mx-auto">
+  <div
+    *ngIf="produit"
+    class="flex flex-col md:flex-row items-center space-x-10"
+  >
+    <div class="w-1/2 h-[800px]">
+      <img
+        src="assets/img/produits/{{ produit.image }}"
+        class="object-contain w-full h-full"
+      />
+    </div>
+    <div class="flex flex-col space-y-20">
+      <div class="space-y-12">
+        <h2 class="text-3xl md:text-5xl font-semibold">{{ produit.nom }}</h2>
+        <div class="space-y-4">
+          <h3 class="uppercase font-medium text-primary-500">Description:</h3>
+          <p>{{ produit.description }}</p>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <h3 class="uppercase font-medium text-primary-500">Quantite:</h3>
+        <button
+          class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-xl px-5 py-3 text-center"
+          (click)="decQuantite()"
+        >
+          -
+        </button>
+        <input
+          type="number"
+          class="text-gray-900 text-xl rounded-lg focus:ring-primary-600 focus:border-primary-600 w-20 text-center p-2.5 mx-2"
+          min="1"
+          [(ngModel)]="quantite"
+        />
+        <button
+          class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-xl px-5 py-3 text-center"
+          (click)="incQuantite()"
+        >
+          +
+        </button>
+      </div>
+      <div class="space-y-4">
+        <h3 class="uppercase font-medium text-primary-500">Prix:</h3>
+        <p class="text-5xl font-semibold text-primary-900">
+          {{ produit.prix }} €
+        </p>
+        <button
+          type="submit"
+          class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-xl px-7 py-3 text-center"
+        >
+          Ajouter au panier
+        </button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!produit" class="flex p-6 h-[65vh] justify-center items-center">
+    <p class="text-3xl md:text-5xl font-semibold">
+      Oups ! Ce produit n'existe pas
+    </p>
+  </div>
 </div>
