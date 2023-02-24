@@ -20,6 +20,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
+import { AjouterPanierComponent } from './ajouter-panier/ajouter-panier.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FooterComponent } from './footer/footer.component';
 
     HeaderComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    AjouterPanierComponent
   ],
   imports: [
     BrowserModule,
