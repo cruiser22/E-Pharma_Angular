@@ -1,30 +1,68 @@
 <p>client-edit works!</p>
 <h2>Edit Client</h2>
 
-<div *ngIf="client">
-  <div>
-    <label>ID:</label>
-    <input type="number" [(ngModel)]="client.id" readonly />
-</div>
-<div>
-    <label>Nom:</label>
-    <input [(ngModel)]="client.nom" placeholder="Nom"/>
-  </div>
-  <div>
-    <label>Prénom:</label>
-    <input [(ngModel)]="client.prenom" placeholder="Prénom"/>
-  </div>
-  <div>
-    <label>Adresse:</label>
-    <input [(ngModel)]="client.adresse" placeholder="Adresse"/>
-  </div>
-  <div>
-    <label>Mot de passe:</label>
-    <input [(ngModel)]="client.pass" placeholder="Mot de passe"/>
-  </div>
-  <div>
-    <button (click)="update()">UPDATE CLIENT</button>
-  </div>
-</div>
+<div class="container p-4 mx-auto" *ngIf="client">
+  <div
+  class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+    <div class="w-full bg-white rounded-lg shadow mt-0 sm:max-w-md xl:p-0">
+      <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+        <div>
+          <h1
+          class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+                Mon profil
+          </h1>
 
+            <label class="block mb-2 text-sm font-medium text-gray-900">
+            ID:</label>
+            <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+             type="number" [(ngModel)]="client.id" readonly />
+        </div>
+
+        <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900">Nom:</label>
+            <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+            [(ngModel)]="client.nom" placeholder="Nom"/>
+        </div>
+
+        <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900">Prénom:</label>
+            <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+            [(ngModel)]="client.prenom" placeholder="Prénom"/>
+        </div>
+
+        <div>
+        <label class="block mb-2 text-sm font-medium text-gray-900">Adresse:</label>
+        <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+        [(ngModel)]="client.adresse" placeholder="Adresse"/>
+        </div>
+
+        <div>
+        <button  class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" (click)="update()">MODIFIER MES INFORMATIONS</button>
+        </div>
+
+        <div>
+        <label class="block mb-2 text-sm font-medium text-gray-900">Mot de passe actuel:</label>
+        <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+        type="password" [(ngModel)]="currentPassword" name="currentPassword">
+        </div>
+
+        <div>
+        <label class="block mb-2 text-sm font-medium text-gray-900">Nouveau mot de passe:</label>
+        <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+        type="password" [(ngModel)]="newPassword" name="newPassword">
+        </div>
+
+        <div>
+        <button class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+        (click)="updatePassword()">Modifier le mot de passe</button>
+        </div>
+
+
+        <button  class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+        (click)="logout()">LOGOUT</button>
+
+        </div>
+    </div>
+  </div>
+</div>
   

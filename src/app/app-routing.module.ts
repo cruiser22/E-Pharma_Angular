@@ -13,11 +13,9 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'shop', component: ChoixProduitsComponent },
-  { path: 'profile', component: InfosClientComponent },
-  { path: 'edit', component: ClientEditComponent },
+  { path: 'profil', component: ClientEditComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'profil', component: ProfilComponent },
   { path: 'afficherproduit', component: AfficherProduitComponent },
   { path: 'reset', component: ResetPasswordComponent }
 ];
