@@ -22,9 +22,8 @@ export class SrvProduitService {
 
   getProduit(id:number)
   {
-    return this.http.get<Produit>("http://localhost:8080/api/produit/" + id).toPromise().then(res => {
-      this.lst =res;
-     return this.lst;
+    return this.http.get<Produit>("http://localhost:8080/api/produit/" + id).toPromise().then((res) => {
+     return res;
       // code here is executed on success
     })
    .catch();

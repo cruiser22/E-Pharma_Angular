@@ -8,6 +8,7 @@ import { ClientEditComponent } from './client-edit/client-edit.component';
 import { LoginComponent } from './login/login.component';
 import { ProfilComponent } from './profil/profil.component';
 import { SignupComponent } from './signup/signup.component';
+import { AjouterPanierComponent } from './ajouter-panier/ajouter-panier.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'profil', component: ProfilComponent },
   { path: 'afficherproduit', component: AfficherProduitComponent },
+  { path: 'ajouterpanier', component: AjouterPanierComponent }
 ];
 
 @NgModule({
