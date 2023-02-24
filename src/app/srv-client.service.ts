@@ -129,17 +129,10 @@ export class SrvClientService {
 
   }
 
-  async updatePassword(id: number, newPassword: string) {
-    return this.http
-      .put<Client>(`${environment.apiUrl}/clients/${id}`, { password: newPassword }, {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-      })
-      .toPromise()
-      .then((res) => {
-        this.client = res;
-        return this.client;
-      })
-      .catch();
+  updatePassword(id: number, newPassword: string) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const body = { pass: newPassword };
+    return this.http.put<Client>(`${environment.apiUrl}/clients/${id}`, body, { headers }).toPromise();
   }
   
  
