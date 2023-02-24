@@ -26,7 +26,7 @@ export class LoginComponent {
         this.response = x;
         this.response.error = false;
         localStorage.setItem('client', JSON.stringify(this.response));
-        this.router.navigate(['/']);
+        this.router.navigate(['/profil']);
       })
       .catch((err) => {
         this.response.error = true;
