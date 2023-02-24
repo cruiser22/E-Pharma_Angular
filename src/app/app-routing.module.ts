@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AjouterPanierComponent } from './ajouter-panier/ajouter-panier.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AfficherPanierComponent } from './afficher-panier/afficher-panier.component';
 import { GestionClientComponent } from './gestion-client/gestion-client.component';
 import { AdminComponent } from './admin/admin.component';
 import { GestionClientEditComponent } from './gestion-client-edit/gestion-client-edit.component';
@@ -21,11 +23,9 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'afficherproduit', component: AfficherProduitComponent },
   { path: 'ajouterpanier', component: AjouterPanierComponent },
+  { path: 'afficherpanier', component: AfficherPanierComponent },
   { path: 'shop/:id', component: AfficherProduitComponent },
   { path: 'reset', component: ResetPasswordComponent },
-  { path: 'admin', component: AdminComponent },
-  { path: 'admin/clients', component: GestionClientComponent },
-  { path: 'admin/clients/:id', component: GestionClientEditComponent },
 ];
 
 @NgModule({

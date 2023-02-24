@@ -25,6 +25,8 @@ import { GestionClientComponent } from './gestion-client/gestion-client.componen
 import { GestionClientEditComponent } from './gestion-client-edit/gestion-client-edit.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AfficherPanierComponent } from './afficher-panier/afficher-panier.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
     GestionClientEditComponent,
     AdminComponent,
     AdminNavbarComponent,
+    AdminLoginComponent,
+    AfficherPanierComponent,
   ],
   imports: [
     BrowserModule,
