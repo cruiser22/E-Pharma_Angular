@@ -1,0 +1,113 @@
+<nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded">
+  <div class="container flex flex-wrap items-center justify-between mx-auto">
+    <a [routerLink]="['/']" class="flex items-center">
+      <span
+        class="self-center text-primary-500 text-2xl font-bold whitespace-nowrap"
+        >EPHARMA.</span
+      >
+    </a>
+    <!-- TODO: faire une liste de liens dans component.ts-->
+    <button
+      data-collapse-toggle="navbar-default"
+      type="button"
+      class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+      aria-controls="navbar-default"
+      aria-expanded="false"
+      (click)="toggleNav()"
+    >
+      <svg
+        class="w-6 h-6"
+        aria-hidden="true"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+          clip-rule="evenodd"
+        ></path>
+      </svg>
+    </button>
+    <div *ngIf="open" class="md:hidden flex flex-col w-full p-5">
+      <li class="list-none">
+        <a
+          href="#"
+          class="uppercase block py-2 pl-3 pr-4 text-white bg-primary-700 rounded md:bg-transparent md:text-primary-700 md:p-0"
+          aria-current="page"
+          >Boutique</a
+        >
+      </li>
+      <li class="list-none">
+        <a
+          href="#"
+          class="uppercase block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
+          >A propos</a
+        >
+      </li>
+      <li class="list-none">
+        <a
+          href="#"
+          class="uppercase block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
+          >Contact</a
+        >
+      </li>
+      <li *ngIf="!client" class="list-none">
+        <a
+          href="#"
+          class="uppercase block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
+          >Connexion/Inscription</a
+        >
+      </li>
+      <li *ngIf="client" class="list-none">
+        <a
+          href="#"
+          class="uppercase block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
+          >Mon compte</a
+        >
+      </li>
+    </div>
+    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+      <ul
+        class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white"
+      >
+        <li>
+          <a
+            [routerLink]="['/shop']"
+            class="uppercase block py-2 pl-3 pr-4 text-white bg-primary-700 rounded md:bg-transparent md:text-primary-700 md:p-0"
+            aria-current="page"
+            >Boutique</a
+          >
+        </li>
+        <li>
+          <a
+            [routerLink]="['/about']"
+            class="uppercase block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
+            >A propos</a
+          >
+        </li>
+        <li>
+          <a
+            [routerLink]="['/contact']"
+            class="uppercase block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
+            >Contact</a
+          >
+        </li>
+        <li *ngIf="!client">
+          <a
+            [routerLink]="['/login']"
+            class="uppercase block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
+            >Connexion/Inscription</a
+          >
+        </li>
+        <li *ngIf="client">
+          <a
+            [routerLink]="['/profil']"
+            class="uppercase block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
+            >Mon compte</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

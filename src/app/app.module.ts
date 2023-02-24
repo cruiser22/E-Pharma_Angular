@@ -15,8 +15,14 @@ import { AuthentificationComponent } from './authentification/authentification.c
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProfilComponent } from './profil/profil.component';
+<<<<<<< HEAD
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
+=======
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
+>>>>>>> ed5115e2109891d626aab0590d08f06df8b955af
 
 @NgModule({
   declarations: [
@@ -29,8 +35,14 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     LoginComponent,
     SignupComponent,
     ProfilComponent,
+<<<<<<< HEAD
     ResetPasswordComponent,
 
+=======
+    HeaderComponent,
+    HomeComponent,
+    FooterComponent
+>>>>>>> ed5115e2109891d626aab0590d08f06df8b955af
   ],
   imports: [
     BrowserModule,
