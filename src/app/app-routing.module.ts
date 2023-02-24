@@ -19,10 +19,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'profil', component: ProfilComponent },
   { path: 'afficherproduit', component: AfficherProduitComponent },
-<<<<<<< HEAD
   { path: 'reset', component: ResetPasswordComponent }
-=======
->>>>>>> ed5115e2109891d626aab0590d08f06df8b955af
 ];
 
 @NgModule({
