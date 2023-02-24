@@ -21,7 +21,11 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { AjouterPanierComponent } from './ajouter-panier/ajouter-panier.component';
+<<<<<<< HEAD
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+=======
 import { AfficherPanierComponent } from './afficher-panier/afficher-panier.component';
+>>>>>>> aa12b2758397519730f9fc73dd4c8904b4b0c636
 
 @NgModule({
   declarations: [
@@ -40,7 +44,11 @@ import { AfficherPanierComponent } from './afficher-panier/afficher-panier.compo
     HomeComponent,
     FooterComponent,
     AjouterPanierComponent,
+<<<<<<< HEAD
+    AdminLoginComponent
+=======
     AfficherPanierComponent
+>>>>>>> aa12b2758397519730f9fc73dd4c8904b4b0c636
   ],
   imports: [
     BrowserModule,
