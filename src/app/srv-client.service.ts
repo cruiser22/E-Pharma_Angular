@@ -4,16 +4,12 @@ import { Client } from './client';
 
 import { environment } from 'src/environments/environment';
 
-
 @Injectable({
   providedIn: 'root',
 })
 export class SrvClientService {
   lst: any;
   client: any;
-
- 
- 
 
   constructor(private http: HttpClient) {}
 
@@ -106,36 +102,41 @@ export class SrvClientService {
       .catch();
   }
 
-  
+  async update(id: number, client: any) {
+    let c = await this.getById(id);
 
- async update(id:number, client:any ) {
-
-    let c = await this.getById(id)
-
-      return this.http
+    return this.http
       .put<Client>(
         `${environment.apiUrl}/clients/${id}`,
-        JSON.stringify({...c,...client}),
+        JSON.stringify({ ...c, ...client }),
         { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
       )
       .toPromise()
       .then((res) => {
         this.client = res;
-        localStorage.setItem("client",JSON.stringify(this.client))
+        localStorage.setItem('client', JSON.stringify(this.client));
         return this.client;
         // code here is executed on success
       })
       .catch();
-
   }
 
   updatePassword(id: number, newPassword: string) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const body = { pass: newPassword };
-    return this.http.put<Client>(`${environment.apiUrl}/clients/${id}`, body, { headers }).toPromise();
+    return this.http
+      .put<Client>(`${environment.apiUrl}/clients/${id}`, body, { headers })
+      .toPromise();
   }
-  
- 
+
+  async delete(id: number) {
+    const res = await this.http
+      .delete(`${environment.apiUrl}/clients/${id}`, {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      })
+      .toPromise();
+    return res;
+  }
 }
 
 interface Login {

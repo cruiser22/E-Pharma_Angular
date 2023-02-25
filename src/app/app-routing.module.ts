@@ -9,8 +9,12 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AjouterPanierComponent } from './ajouter-panier/ajouter-panier.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AfficherPanierComponent } from './afficher-panier/afficher-panier.component';
 import { ValiderCommandeComponent } from './valider-commande/valider-commande.component';
+import { GestionClientComponent } from './gestion-client/gestion-client.component';
+import { AdminComponent } from './admin/admin.component';
+import { GestionClientEditComponent } from './gestion-client-edit/gestion-client-edit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,7 +27,7 @@ const routes: Routes = [
   { path: 'afficherpanier', component: AfficherPanierComponent },
   { path: 'validercommande', component: ValiderCommandeComponent },
   { path: 'shop/:id', component: AfficherProduitComponent },
-  { path: 'reset', component: ResetPasswordComponent }
+  { path: 'reset', component: ResetPasswordComponent },
 ];
 
 @NgModule({
