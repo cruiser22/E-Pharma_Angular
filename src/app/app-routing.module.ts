@@ -9,11 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AjouterPanierComponent } from './ajouter-panier/ajouter-panier.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-<<<<<<< HEAD
 import { AdminLoginComponent } from './admin-login/admin-login.component';
-=======
 import { AfficherPanierComponent } from './afficher-panier/afficher-panier.component';
->>>>>>> aa12b2758397519730f9fc73dd4c8904b4b0c636
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
