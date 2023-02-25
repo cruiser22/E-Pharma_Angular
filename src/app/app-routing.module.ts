@@ -10,6 +10,7 @@ import { SignupComponent } from './signup/signup.component';
 import { AjouterPanierComponent } from './ajouter-panier/ajouter-panier.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { AfficherPanierComponent } from './afficher-panier/afficher-panier.component';
+import { ValiderCommandeComponent } from './valider-commande/valider-commande.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'afficherproduit', component: AfficherProduitComponent },
   { path: 'ajouterpanier', component: AjouterPanierComponent },
   { path: 'afficherpanier', component: AfficherPanierComponent },
+  { path: 'validercommande', component: ValiderCommandeComponent },
   { path: 'shop/:id', component: AfficherProduitComponent },
   { path: 'reset', component: ResetPasswordComponent }
 ];

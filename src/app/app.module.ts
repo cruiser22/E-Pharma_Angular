@@ -22,6 +22,7 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { AjouterPanierComponent } from './ajouter-panier/ajouter-panier.component';
 import { AfficherPanierComponent } from './afficher-panier/afficher-panier.component';
+import { ValiderCommandeComponent } from './valider-commande/valider-commande.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AfficherPanierComponent } from './afficher-panier/afficher-panier.compo
     HomeComponent,
     FooterComponent,
     AjouterPanierComponent,
-    AfficherPanierComponent
+    AfficherPanierComponent,
+    ValiderCommandeComponent
   ],
   imports: [
     BrowserModule,
