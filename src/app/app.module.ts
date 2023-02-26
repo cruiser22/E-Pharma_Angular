@@ -27,6 +27,8 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AfficherPanierComponent } from './afficher-panier/afficher-panier.component';
+import { GestionProduitComponent } from './gestion-produit/gestion-produit.component';
+import { GestionProduitEditComponent } from './gestion-produit-edit/gestion-produit-edit.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { AfficherPanierComponent } from './afficher-panier/afficher-panier.compo
     AdminNavbarComponent,
     AdminLoginComponent,
     AfficherPanierComponent,
+    GestionProduitComponent,
+    GestionProduitEditComponent,
   ],
   imports: [
     BrowserModule,

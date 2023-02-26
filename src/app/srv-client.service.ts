@@ -137,6 +137,18 @@ export class SrvClientService {
       .toPromise();
     return res;
   }
+
+  async add(client: Client) {
+    const res = await this.http
+      .post(`${environment.apiUrl}/clients`, client, {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      })
+      .toPromise()
+      .catch((error) => {
+        return error;
+      });
+    return res;
+  }
 }
 
 interface Login {
