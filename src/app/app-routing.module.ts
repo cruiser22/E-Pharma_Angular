@@ -26,6 +26,8 @@ const routes: Routes = [
   { path: 'afficherpanier', component: AfficherPanierComponent },
   { path: 'shop/:id', component: AfficherProduitComponent },
   { path: 'reset', component: ResetPasswordComponent },
+  { path: 'admin/clients', component: GestionClientComponent },
+  { path: 'admin/clients/:id', component: GestionClientEditComponent },
 ];
 
 @NgModule({
