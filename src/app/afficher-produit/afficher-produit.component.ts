@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { SrvProduitService } from '../srv-produit.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { SrvProduitService } from '../srv-produit.service';
 })
 export class AfficherProduitComponent {
   produit: any;
+  imgUrl: string;
   quantite = 1;
   id: number = 0;
 
@@ -18,6 +20,7 @@ export class AfficherProduitComponent {
     this.route.params.subscribe((params) => {
       this.id = params['id'];
     });
+    this.imgUrl = `${environment.apiUrl}/image`;
     this.affiche(this.id);
   }
 
