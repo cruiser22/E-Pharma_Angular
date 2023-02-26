@@ -14,8 +14,10 @@ import { AfficherPanierComponent } from './afficher-panier/afficher-panier.compo
 import { GestionClientComponent } from './gestion-client/gestion-client.component';
 import { AdminComponent } from './admin/admin.component';
 import { GestionClientEditComponent } from './gestion-client-edit/gestion-client-edit.component';
+import { AProposComponent } from './a-propos/a-propos.component';
 import { GestionProduitComponent } from './gestion-produit/gestion-produit.component';
 import { GestionProduitEditComponent } from './gestion-produit-edit/gestion-produit-edit.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,6 +32,9 @@ const routes: Routes = [
   { path: 'reset', component: ResetPasswordComponent },
   { path: 'admin/clients', component: GestionClientComponent },
   { path: 'admin/clients/:id', component: GestionClientEditComponent },
+  { path: 'about', component: AProposComponent },
+  { path: 'contact', component: ContactComponent },
+  
   { path: 'admin/produits', component: GestionProduitComponent },
   { path: 'admin/produits/:id', component: GestionProduitEditComponent },
 ];
