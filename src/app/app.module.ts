@@ -27,12 +27,9 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AfficherPanierComponent } from './afficher-panier/afficher-panier.component';
-<<<<<<< HEAD
 import { AProposComponent } from './a-propos/a-propos.component';
-=======
 import { GestionProduitComponent } from './gestion-produit/gestion-produit.component';
 import { GestionProduitEditComponent } from './gestion-produit-edit/gestion-produit-edit.component';
->>>>>>> c771abfbdcb6297793b28253c41aff770176e7ae
 
 @NgModule({
   declarations: [
@@ -59,12 +56,9 @@ import { GestionProduitEditComponent } from './gestion-produit-edit/gestion-prod
     AdminNavbarComponent,
     AdminLoginComponent,
     AfficherPanierComponent,
-<<<<<<< HEAD
-    AProposComponent
-=======
+    AProposComponent,
     GestionProduitComponent,
     GestionProduitEditComponent,
->>>>>>> c771abfbdcb6297793b28253c41aff770176e7ae
   ],
   imports: [
     BrowserModule,
