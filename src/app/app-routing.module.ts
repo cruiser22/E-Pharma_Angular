@@ -11,6 +11,10 @@ import { AjouterPanierComponent } from './ajouter-panier/ajouter-panier.componen
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AfficherPanierComponent } from './afficher-panier/afficher-panier.component';
+import { GestionClientComponent } from './gestion-client/gestion-client.component';
+import { AdminComponent } from './admin/admin.component';
+import { GestionClientEditComponent } from './gestion-client-edit/gestion-client-edit.component';
+import { AProposComponent } from './a-propos/a-propos.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,7 +27,10 @@ const routes: Routes = [
   { path: 'afficherpanier', component: AfficherPanierComponent },
   { path: 'shop/:id', component: AfficherProduitComponent },
   { path: 'reset', component: ResetPasswordComponent },
-  { path: 'admin/login', component: AdminLoginComponent }
+  { path: 'admin/clients', component: GestionClientComponent },
+  { path: 'admin/clients/:id', component: GestionClientEditComponent },
+  { path: 'apropos', component: AProposComponent },
+  
 ];
 
 @NgModule({

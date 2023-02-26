@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,8 +21,13 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { AjouterPanierComponent } from './ajouter-panier/ajouter-panier.component';
+import { GestionClientComponent } from './gestion-client/gestion-client.component';
+import { GestionClientEditComponent } from './gestion-client-edit/gestion-client-edit.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AfficherPanierComponent } from './afficher-panier/afficher-panier.component';
+import { AProposComponent } from './a-propos/a-propos.component';
 
 @NgModule({
   declarations: [
@@ -42,16 +47,23 @@ import { AfficherPanierComponent } from './afficher-panier/afficher-panier.compo
     FooterComponent,
     AjouterPanierComponent,
     AdminLoginComponent,
-    AfficherPanierComponent
+    AfficherPanierComponent,
+    GestionClientComponent,
+    GestionClientEditComponent,
+    AdminComponent,
+    AdminNavbarComponent,
+    AdminLoginComponent,
+    AfficherPanierComponent,
+    AProposComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
