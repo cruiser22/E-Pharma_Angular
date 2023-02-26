@@ -74,7 +74,16 @@ export class SrvProduitService {
       });
   }
 
-  async add(produit: Produit) {
+  upload(id: number, image: FormData) {
+    return this.http
+      .post(`${environment.apiUrl}/produit/upload/${id}`, image)
+      .subscribe(
+        (response) => console.log(response),
+        (error) => console.log(error)
+      );
+  }
+
+  add(produit: Produit) {
     return this.http
       .post<Produit>(`${environment.apiUrl}/produit`, JSON.stringify(produit), {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' }),

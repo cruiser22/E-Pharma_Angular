@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Produit } from '../produit';
 import { SrvProduitService } from '../srv-produit.service';
 

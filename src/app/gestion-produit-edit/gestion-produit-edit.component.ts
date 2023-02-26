@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { Produit } from '../produit';
 import { SrvProduitService } from '../srv-produit.service';
 
@@ -9,10 +10,13 @@ import { SrvProduitService } from '../srv-produit.service';
   styleUrls: ['./gestion-produit-edit.component.css'],
 })
 export class GestionProduitEditComponent {
+  previewImageSrc;
+  imgUrl = `${environment.apiUrl}/image`;
   produit: Produit | any;
   nom: string;
   stateUpdate = { error: false, message: null };
   stateDelete = { error: false, message: null };
+  image;
 
   constructor(
     private router: Router,
@@ -29,9 +33,34 @@ export class GestionProduitEditComponent {
     this.getProduit(id);
   }
 
+  async updateImage(id) {
+    const formData = new FormData();
+    formData.append('file', this.image);
+    try {
+      const imgResponse = await this.srv.upload(id, formData);
+      console.log(imgResponse);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async onFileSelected(event) {
+    console.log(event.target.files);
+    if (event.target.files && event.target.files.length > 0) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        // Set the preview image source
+        this.previewImageSrc = e.target.result;
+      };
+      reader.readAsDataURL(file);
+      this.image = file;
+    }
+  }
   async update(id) {
     try {
       this.srv.update(id, this.produit);
+      console.log(this.produit);
       this.stateUpdate.error = false;
       this.stateUpdate.message = 'Succes: Le Produit a bien ete ajoute.';
     } catch (error) {
@@ -44,6 +73,7 @@ export class GestionProduitEditComponent {
   async getProduit(id) {
     try {
       this.produit = await this.srv.getProduit(id);
+      this.previewImageSrc = `${environment.apiUrl}/image/${this.produit.image}`;
       console.log(this.produit);
     } catch (error) {
       console.log(error);
