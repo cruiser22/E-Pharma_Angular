@@ -30,6 +30,7 @@ import { AfficherPanierComponent } from './afficher-panier/afficher-panier.compo
 import { AProposComponent } from './a-propos/a-propos.component';
 import { GestionProduitComponent } from './gestion-produit/gestion-produit.component';
 import { GestionProduitEditComponent } from './gestion-produit-edit/gestion-produit-edit.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { GestionProduitEditComponent } from './gestion-produit-edit/gestion-prod
     AProposComponent,
     GestionProduitComponent,
     GestionProduitEditComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
