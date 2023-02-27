@@ -1,25 +1,49 @@
 import { Component } from '@angular/core';
+import { Client } from '../client';
 import { Commande } from '../commande';
-import { Ligne } from '../ligne';
-import { Produit } from '../produit';
+import { SrvCommandeService } from '../srv-commande.service';
 
 @Component({
   selector: 'app-valider-commande',
   templateUrl: './valider-commande.component.html',
-  styleUrls: ['./valider-commande.component.css']
+  styleUrls: ['./valider-commande.component.css'],
 })
 export class ValiderCommandeComponent {
-  lignes: Array<Ligne> = [];
+  commande: Commande = new Commande();
+  client;
+  panier;
+  total = 0;
+  lignes = [];
 
-  constructor() {}
+  constructor(private srvCommandeService: SrvCommandeService) {}
+
+  getClient() {
+    this.client = JSON.parse(localStorage.getItem('client'));
+  }
+
+  async validerCommande() {
+    const commande = await this.srvCommandeService.saveCommande({
+      client: this.client,
+      lignes: this.panier,
+      prixTotal: this.total,
+    });
+
+    if (commande) {
+      sessionStorage.removeItem('panier');
+    }
+  }
 
   ngOnInit(): void {
-    let str: string = sessionStorage.getItem("panier");
+    this.getClient();
+    let str: string = sessionStorage.getItem('panier');
+    this.total = 0;
     if (str != null) {
-      this.lignes = JSON.parse(str);
     }
-    let commande = new Commande;
-    commande.lignes = this.lignes;
-    //commande.
+    if (str != null) {
+      this.panier = JSON.parse(sessionStorage.getItem('panier'));
+      for (let p of this.panier) {
+        this.total += p.total;
+      }
+    }
   }
 }
