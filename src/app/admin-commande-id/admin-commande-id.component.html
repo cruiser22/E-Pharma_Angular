@@ -1,4 +1,4 @@
-
+<!-- 
 <div
   class="container mx-auto flex flex-col md:flex-row py-3 min-h-[65vh] space-x-20"
 >
@@ -25,7 +25,7 @@
         <div>
             {{commande.id}}
         </div>
-        <!-- <tbody>
+        <tbody>
           <tr *ng="let c of commande" class="bg-white border-b">
             <th
               scope="row"
@@ -43,8 +43,39 @@
     
             </td>
           </tr>
-        </tbody> -->
+        </tbody> 
       </table>
     </div>
+  </div>
+</div> -->
+<div class="container mx-auto flex flex-col md:flex-row py-3 min-h-[65vh] space-x-20">
+  <app-admin-navbar></app-admin-navbar>
+  <div *ngIf="commande" class="flex flex-col shadow-lg p-4">
+    <h2 class="text-xl font-bold mb-2">Détails de la commande {{ commande.id }}</h2>
+
+    <table class="table-auto">
+      <tr>
+        <td class="py-2">Date de commande :</td>
+        <td class="py-2">{{ commande.date | date:'short' }}</td>
+      </tr>
+      <tr>
+        <td class="py-2">Client :</td>
+        <td class="py-2">{{ commande.client.nom }} {{ commande.client.prenom }}</td>
+      </tr>
+      <tr>
+        <td class="py-2">Produits :</td>
+        <td class="py-2">
+          <ul>
+            <li *ngFor="let ligne of commande.lignes" class="mb-1">{{ ligne.produit.nom }} x {{ ligne.quantite }}</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td class="py-2">Total :</td>
+        <td class="py-2">{{ commande.prixTotal | currency:'EUR' }}</td>
+      </tr>
+    </table>
+
+    <button (click)="retour()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded shadow">Retour</button>
   </div>
 </div>
