@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Commande } from '../commande';
+import { Ligne } from '../ligne';
 import { Produit } from '../produit';
 
 @Component({
@@ -7,17 +9,17 @@ import { Produit } from '../produit';
   styleUrls: ['./valider-commande.component.css']
 })
 export class ValiderCommandeComponent {
-  produits: Array<Produit> = [];
+  lignes: Array<Ligne> = [];
 
   constructor() {}
 
   ngOnInit(): void {
     let str: string = sessionStorage.getItem("panier");
     if (str != null) {
-      this.produits = JSON.parse(str);
+      this.lignes = JSON.parse(str);
     }
-    for (let p of this.produits) {
-      
-    }
+    let commande = new Commande;
+    commande.lignes = this.lignes;
+    //commande.
   }
 }

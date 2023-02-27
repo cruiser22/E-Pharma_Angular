@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Ligne } from '../ligne';
 import { Produit } from '../produit';
 
 @Component({
@@ -7,14 +8,14 @@ import { Produit } from '../produit';
   styleUrls: ['./afficher-panier.component.css']
 })
 export class AfficherPanierComponent {
-  produits: Array<Produit> = [];
+  lignes: Array<Ligne> = [];
 
   constructor() {}
 
   ngOnInit(): void {
     let str: string = sessionStorage.getItem("panier");
     if (str != null) {
-      this.produits = JSON.parse(str);
+      this.lignes = JSON.parse(str);
     }
   }
 }

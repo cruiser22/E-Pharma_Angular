@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Ligne } from '../ligne';
 import { Produit } from '../produit';
 import { SrvProduitService } from '../srv-produit.service';
 
@@ -8,9 +9,8 @@ import { SrvProduitService } from '../srv-produit.service';
   styleUrls: ['./ajouter-panier.component.css']
 })
 export class AjouterPanierComponent {
-  produits: Array<Produit> = [];
+  lignes: Array<Ligne> = [];
   liste : any;
-  nvProduit: Produit;
 
   constructor(private srv: SrvProduitService) {}
 
@@ -18,23 +18,34 @@ export class AjouterPanierComponent {
     this.srv.getliste().then(x=>this.liste=x);
     let str: string = sessionStorage.getItem("panier");
     if (str != null) {
-      this.produits = JSON.parse(str);
+      this.lignes = JSON.parse(str);
     }
   }
 
   async ajouter(id: number) {
-    console.log(id);
-    this.nvProduit= await this.srv.getProduit(id);
+    let nvProduit = await this.srv.getProduit(id);
 
-    console.log(this.nvProduit);
+    let exist: boolean = false;
 
-    let str =JSON.stringify(this.nvProduit);
-    console.log(str);
+    // Vérifier si produit existe dans liste Client
+    for (let l of this.lignes) {
+      if (l.produit.id == id) {
+        exist = true;
+        l.quantite++;
+      }
+    }
 
-    this.produits.push(this.nvProduit);
+    // Si non-existant, le créer
+    if (!exist) {
+      let ligne = new Ligne;
+      ligne.id = this.lignes.length + 1;
+      ligne.produit = nvProduit;
+      ligne.quantite = 1;
+      this.lignes.push(ligne);
+    }
 
-    str =JSON.stringify(this.produits);
-    console.log(str);
+    // Mis à jour du Panier
+    let str =JSON.stringify(this.lignes);
     sessionStorage.setItem("panier",str);
   }
 }

@@ -26,26 +26,25 @@
 </table>
 <hr>
 <table>
-    <tr *ngFor="let p of produits">
+    <tr *ngFor="let l of lignes">
         <td>
-            {{p.id}}
+            {{l.quantite}}x
         </td>
         <td>
-            {{p.nom}}
+            {{l.produit.nom}}
         </td>
         <td>
-            {{p.description}}
+            {{l.produit.description}}
         </td>
         <td>
-            {{p.prix}}
+            {{l.produit.prix}}
         </td>
         <td>
-            {{p.image}}
+            {{l.produit.image}}
         </td>
         <td>
-            {{p.categorie}}
+            {{l.produit.categorie}}
         </td>
     </tr>
-
 </table>
 <hr>
