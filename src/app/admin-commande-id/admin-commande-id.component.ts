@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Commande } from '../commande';
 import { SrvCommandeService } from '../srv-commande.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-commande-id',
@@ -10,25 +10,25 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AdminCommandeIdComponent {
 
-commande: Commande | any;
+// commande: Commande | any;
  
-  newPassword: string;
-  email: string;
+//   newPassword: string;
+//   email: string;
 
-  constructor(
-    
-    private srv: SrvCommandeService,
-    private route: ActivatedRoute
-  ) {}
+//   constructor(
+//     private router: Router,
+//     private srv: SrvCommandeService,
+//     private route: ActivatedRoute
+//   ) {}
 
-  ngOnInit() {
-    let id: number;
-    this.route.params.subscribe((params) => {
-      id = params['id'];
-    });
+//   ngOnInit() {
+//     let id: number;
+//     this.route.params.subscribe((params) => {
+//       id = params['id'];
+//     });
 
-    this.getCommande(id);
-  }
+//     this.commande;
+//  }
   
   }
 

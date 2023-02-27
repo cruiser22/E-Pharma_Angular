@@ -22,7 +22,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let c of commande" class="bg-white border-b">
+            <tr *ngFor="let c of clients" class="bg-white border-b">
               <th
                 scope="row"
                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
@@ -34,7 +34,9 @@
               <td class="px-6 py-4">{{ c.prenom }}</td>
               <td class="px-6 py-4">{{ c.adresse }}</td>
               <td class="px-6 py-4">
-            
+                <a routerLink="{{ c.id }}" class="font-medium text-primary-600"
+                  >Modifier</a
+                >
               </td>
             </tr>
           </tbody>
