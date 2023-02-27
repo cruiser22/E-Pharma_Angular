@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { SrvProduitService } from '../srv-produit.service';
 
 @Component({
@@ -8,10 +9,12 @@ import { SrvProduitService } from '../srv-produit.service';
 })
 export class HomeComponent {
   produits: any[] = [];
+  imgUrl;
   testimoniaux: any[] = [];
   constructor(private srv: SrvProduitService) {}
 
   ngOnInit() {
+    this.imgUrl = `${environment.apiUrl}/image`;
     this.getProduits();
     this.testimoniaux = [
       {

@@ -9,8 +9,66 @@ import { Produit } from './produit';
 })
 export class SrvProduitService {
   lst: any;
+  panier: any;
 
   constructor(private http: HttpClient) {}
+
+  ngOnInit() {}
+
+  async ajouterPanier(id: number, quantite) {
+    let newProduit = await this.getProduit(id);
+    let produits = [];
+    if (!sessionStorage.getItem('panier')) {
+      sessionStorage.setItem('panier', JSON.stringify([]));
+    }
+
+    produits = JSON.parse(sessionStorage.getItem('panier'));
+
+    console.log(produits);
+    this.ajouterLigne(newProduit, quantite, produits);
+    sessionStorage.setItem('panier', JSON.stringify(produits));
+    console.log(JSON.parse(sessionStorage.getItem('panier')));
+  }
+
+  async enleverPanier(id: number, quantite) {
+    let produits = [];
+    if (sessionStorage.getItem('panier')) {
+      produits = JSON.parse(sessionStorage.getItem('panier'));
+    } else {
+      return;
+    }
+    this.enleverLigne(id, quantite, produits);
+    sessionStorage.setItem('panier', JSON.stringify(produits));
+  }
+
+  enleverLigne(id, quantite, produits) {
+    for (let p of produits) {
+      if (p.produit.id === id) {
+        if (p.quantite > quantite) {
+          p.quantite -= quantite;
+          p.total = p.produit.prix * p.quantite;
+          console.log(p);
+          return;
+        }
+        produits.splice(produits.indexOf(p), 1);
+      }
+    }
+  }
+
+  ajouterLigne(produit, quantite, produits) {
+    for (let p of produits) {
+      if (p.produit.id === produit.id) {
+        p.quantite += quantite;
+        p.total = p.produit.prix * p.quantite;
+        return;
+      }
+    }
+    produits.push({
+      produit: produit,
+      quantite: quantite,
+      total: produit.prix * quantite,
+    });
+  }
 
   getliste() {
     return this.http
