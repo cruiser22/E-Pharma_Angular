@@ -34,9 +34,11 @@ commande: Commande | any;
    console.log(error)
  }
 
-
-
  }
+
+ retour() {
+  this.router.navigate(['/admin/commandes']);
+}
   
   }
 
