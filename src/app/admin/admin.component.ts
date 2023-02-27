@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Admin } from '../admin';
 import { AuthService } from '../auth.service';
 
@@ -8,17 +9,15 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent {
+  admin: any;
 
-  nom: string;
+  constructor(private authService: AuthService, private router: Router) {}
 
-  constructor(private authService: AuthService) {
-    authService.adminLogin('email', 'password').subscribe(
-      (admin: Admin) => {
-        this.nom = admin.nom;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+  ngOnInit() {
+    if (!localStorage.getItem('admin')) {
+      this.router.navigate(['/admin/login']);
+    }
+
+    this.admin = JSON.parse(localStorage.getItem('admin'));
   }
 }
