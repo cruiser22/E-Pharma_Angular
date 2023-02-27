@@ -1,7 +1,7 @@
 <div class="container mx-auto">
   <div
     *ngIf="produit"
-    class="flex flex-col md:flex-row items-center space-x-10"
+    class="flex flex-col items-center space-x-10 md:flex-row"
   >
     <div class="w-1/2 h-[800px]">
       <img
@@ -11,16 +11,16 @@
     </div>
     <div class="flex flex-col space-y-20">
       <div class="space-y-12">
-        <h2 class="text-3xl md:text-5xl font-semibold">{{ produit.nom }}</h2>
+        <h2 class="text-3xl font-semibold md:text-5xl">{{ produit.nom }}</h2>
         <div class="space-y-4">
-          <h3 class="uppercase font-medium text-primary-500">Description:</h3>
+          <h3 class="font-medium uppercase text-primary-500">Description:</h3>
           <p>{{ produit.description }}</p>
         </div>
       </div>
       <div class="space-y-4">
-        <h3 class="uppercase font-medium text-primary-500">Quantite:</h3>
+        <h3 class="font-medium uppercase text-primary-500">Quantite:</h3>
         <button
-          class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-xl px-5 py-3 text-center"
+          class="px-5 py-3 text-xl font-medium text-center text-white rounded-lg bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300"
           (click)="decQuantite()"
         >
           -
@@ -32,20 +32,21 @@
           [(ngModel)]="quantite"
         />
         <button
-          class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-xl px-5 py-3 text-center"
+          class="px-5 py-3 text-xl font-medium text-center text-white rounded-lg bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300"
           (click)="incQuantite()"
         >
           +
         </button>
       </div>
       <div class="space-y-4">
-        <h3 class="uppercase font-medium text-primary-500">Prix:</h3>
+        <h3 class="font-medium uppercase text-primary-500">Prix:</h3>
         <p class="text-5xl font-semibold text-primary-900">
           {{ produit.prix * quantite }} €
         </p>
         <button
           type="submit"
-          class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-xl px-7 py-3 text-center"
+          class="py-3 text-xl font-medium text-center text-white rounded-lg bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 px-7"
+          (click)="ajouterPanier(produit.id, quantite)"
         >
           Ajouter au panier
         </button>
@@ -53,7 +54,7 @@
     </div>
   </div>
   <div *ngIf="!produit" class="flex p-6 h-[65vh] justify-center items-center">
-    <p class="text-3xl md:text-5xl font-semibold">
+    <p class="text-3xl font-semibold md:text-5xl">
       Oups ! Ce produit n'existe pas
     </p>
   </div>

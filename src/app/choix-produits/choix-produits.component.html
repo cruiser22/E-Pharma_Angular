@@ -1,5 +1,5 @@
 <div
-  class="pt-20 mb-20 container mx-auto flex flex-row items-start justify-start"
+  class="container flex flex-row items-start justify-start pt-20 mx-auto mb-20"
 >
   <div
     class="flex flex-col flex-shrink-0 items-start text-left w-56 gap-4 pr-5 border-r-[1px] border-primary-300 h-full"
@@ -15,10 +15,10 @@
       />
     </div>
     <div>
-      <h2 class="font-medium mb-3 cursor-pointer" (click)="getListe()">
+      <h2 class="mb-3 font-medium cursor-pointer" (click)="getListe()">
         Categories
       </h2>
-      <div *ngFor="let c of categories" class="ml-3 py-3 w-full">
+      <div *ngFor="let c of categories" class="w-full py-3 ml-3">
         <button (click)="getListeByCategorie(c.id)" class="text-left">
           {{ c.lib }}
         </button>
@@ -26,22 +26,21 @@
     </div>
   </div>
   <div
-    class="flex flex-wrap justify-start gap-6 px-6 max-w-7xl items-start flex-grow-0"
+    class="flex flex-wrap items-start justify-start flex-grow-0 w-full gap-6 px-6"
   >
-    <!-- Add `max-w-[320px] w-full` to limit the width of the child `div`s -->
     <div
       *ngFor="let p of filteredList"
       class="flex flex-col items-center justify-center border-[1px] border-primary-200 rounded-md p-5 hover:scale-105 transition ease-in-out duration-300 hover:cursor-pointer max-w-[320px] w-full"
     >
       <a routerLink="{{ p.id }}">
-        <div class="h-64 w-64">
+        <div class="w-64 h-64">
           <img
             src="{{ imgUrl }}/{{ p.image }}"
-            class="w-full h-full object-cover"
+            class="object-cover w-full h-full"
           />
         </div>
-        <h4 class="uppercase font-medium text-xl mb-5">{{ p.nom }}</h4>
-        <p class="font-medium text-xl text-primary-500">{{ p.prix }} €</p>
+        <h4 class="mb-5 text-xl font-medium uppercase">{{ p.nom }}</h4>
+        <p class="text-xl font-medium text-primary-500">{{ p.prix }} €</p>
       </a>
     </div>
   </div>

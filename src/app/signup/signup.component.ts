@@ -15,6 +15,12 @@ export class SignupComponent {
 
   constructor(private srv: SrvClientService, private router: Router) {}
 
+  ngOnInit() {
+    if (localStorage.getItem('client')) {
+      this.router.navigate(['/profil']);
+    }
+  }
+
   signUp() {
     console.log(this.signUpForm);
     this.srv

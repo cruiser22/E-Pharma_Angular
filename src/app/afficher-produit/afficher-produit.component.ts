@@ -40,4 +40,13 @@ export class AfficherProduitComponent {
       console.log(error);
     }
   }
+
+  async ajouterPanier(id: number, quantite) {
+    try {
+      this.srv.ajouterPanier(id, quantite);
+      console.log(JSON.parse(sessionStorage.getItem('panier')));
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
