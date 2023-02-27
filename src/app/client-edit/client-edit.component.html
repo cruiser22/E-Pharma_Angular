@@ -113,11 +113,7 @@
     </div>
   </div>
   <div *ngIf="context == 1">
-    <div
-      *ngIf="client.commandes.length == 0"
-      class="relative px-4 py-3 text-red-700 bg-red-100 border border-red-400 rounded"
-      role="alert"
-    >
+    <div *ngIf="client.commandes.length == 0">
       <p class="text-3xl font-semibold md:text-2xl">
         Vous n'avez pas encore de commandes ! Choisissez un article dans notre
         <a routerLink="/shop" class="underline text-primary-600">boutique</a>
@@ -134,7 +130,7 @@
             </tr>
           </thead>
           <tbody>
-            <!-- <tr *ngFor="let c of client.commandes" class="bg-white border-b">
+            <tr *ngFor="let c of client.commandes" class="bg-white border-b">
               <th
                 scope="row"
                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
@@ -144,12 +140,12 @@
               <td class="px-6 py-4">{{ c.prixTotal }} €</td>
               <td class="px-6 py-4">
                 <a
-                  routerLink="/admin/commandes/{{ c.id }}"
+                  routerLink="/profil/commandes/{{ c.id }}"
                   class="font-medium text-primary-600"
-                  >Modifier</a
+                  >Details</a
                 >
               </td>
-            </tr> -->
+            </tr>
           </tbody>
         </table>
       </div>
