@@ -7,49 +7,38 @@
       <h1
         class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl"
       >
-        Liste des clients
+        Liste des commandes
       </h1>
       <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left text-gray-500">
           <thead class="text-xs text-gray-700 uppercase bg-gray-50">
             <tr>
               <th scope="col" class="px-6 py-3">Id</th>
-              <th scope="col" class="px-6 py-3">Email</th>
-              <th scope="col" class="px-6 py-3">Nom</th>
-              <th scope="col" class="px-6 py-3">Prenom</th>
-              <th scope="col" class="px-6 py-3">Adresse</th>
+              <th scope="col" class="px-6 py-3">Prix Total</th>
+              <th scope="col" class="px-6 py-3">Client</th>
               <th scope="col" class="px-6 py-3">Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let c of commande" class="bg-white border-b">
+            <tr *ngFor="let c of commandes" class="bg-white border-b">
               <th
                 scope="row"
                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
               >
                 {{ c.id }}
               </th>
-              <td class="px-6 py-4">{{ c.client }}</td>
-              <td class="px-6 py-4">{{ c.lignes }}</td>
+   
               <td class="px-6 py-4">{{ c.prixTotal }}</td>
-              <td class="px-6 py-4">{{ c.adresse }}</td>
+              <td class="px-6 py-4">{{ c.client.id }}</td>
+             
               <td class="px-6 py-4">
                 <a routerLink="{{ c.id }}" class="font-medium text-primary-600"
-                  >Modifier</a
+                  >VOIR</a
                 >
               </td>
             </tr>
           </tbody>
         </table>
-      </div>
-    </div>
-    <div class="flex flex-col space-y-4">
-      <h1
-        class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl"
-      >
-        Ajouter un client
-      </h1>
-      
       </div>
     </div>
   </div>

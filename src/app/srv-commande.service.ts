@@ -19,4 +19,28 @@ export class SrvCommandeService {
       })
       .catch();
   }
+
+  getcommande() {
+    return this.http
+      .get('http://localhost:8080/api/commande')
+      .toPromise()
+      .then((res) => {
+        this.cmd = res;
+        return this.cmd;
+        // code here is executed on success
+      })
+      .catch();
+  }
+
+  getliste() {
+    return this.http
+      .get('http://localhost:8080/api/commande')
+      .toPromise()
+      .then((res) => {
+        this.cmd = res;
+        return this.cmd;
+        // code here is executed on success
+      })
+      .catch();
+}
 }
