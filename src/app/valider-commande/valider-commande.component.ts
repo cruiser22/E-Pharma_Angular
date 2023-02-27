@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Client } from '../client';
 import { Commande } from '../commande';
+import { SrvClientService } from '../srv-client.service';
 import { SrvCommandeService } from '../srv-commande.service';
 
 @Component({
@@ -15,7 +16,10 @@ export class ValiderCommandeComponent {
   total = 0;
   lignes = [];
 
-  constructor(private srvCommandeService: SrvCommandeService) {}
+  constructor(
+    private srvCommandeService: SrvCommandeService,
+    private srvClientService: SrvClientService
+  ) {}
 
   getClient() {
     this.client = JSON.parse(localStorage.getItem('client'));
@@ -29,7 +33,9 @@ export class ValiderCommandeComponent {
     });
 
     if (commande) {
+      const client = await this.srvClientService.getById(this.client.id);
       sessionStorage.removeItem('panier');
+      localStorage.setItem('client', JSON.stringify(client));
     }
   }
 
