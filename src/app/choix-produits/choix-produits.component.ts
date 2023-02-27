@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Produit } from '../produit';
 import { SrvProduitService } from '../srv-produit.service';
 
@@ -9,6 +10,7 @@ import { SrvProduitService } from '../srv-produit.service';
 })
 export class ChoixProduitsComponent {
   liste: any;
+  imgUrl;
   filteredList: any;
   recherche = '';
   categories = [
@@ -25,6 +27,7 @@ export class ChoixProduitsComponent {
 
   ngOnInit(): void {
     this.getListe();
+    this.imgUrl = `${environment.apiUrl}/image`;
   }
 
   async getListe() {
