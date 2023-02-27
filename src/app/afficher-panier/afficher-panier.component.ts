@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Ligne } from '../ligne';
 import { environment } from 'src/environments/environment';
 import { Produit } from '../produit';
 import { SrvProduitService } from '../srv-produit.service';
@@ -9,6 +10,7 @@ import { SrvProduitService } from '../srv-produit.service';
   styleUrls: ['./afficher-panier.component.css'],
 })
 export class AfficherPanierComponent {
+  lignes: Array<Ligne> = [];
   produits = [];
   total = 0;
   imgUrl;
@@ -24,6 +26,7 @@ export class AfficherPanierComponent {
     let str: string = sessionStorage.getItem('panier');
     this.total = 0;
     if (str != null) {
+      this.lignes = JSON.parse(str);
       this.produits = JSON.parse(str);
       for (let p of this.produits) {
         this.total += p.total;

@@ -27,10 +27,13 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AfficherPanierComponent } from './afficher-panier/afficher-panier.component';
+import { ValiderCommandeComponent } from './valider-commande/valider-commande.component';
 import { AProposComponent } from './a-propos/a-propos.component';
 import { GestionProduitComponent } from './gestion-produit/gestion-produit.component';
 import { GestionProduitEditComponent } from './gestion-produit-edit/gestion-produit-edit.component';
 import { ContactComponent } from './contact/contact.component';
+import { AdminCommandeComponent } from './admin-commande/admin-commande.component';
+import { AdminCommandeIdComponent } from './admin-commande-id/admin-commande-id.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +52,8 @@ import { ContactComponent } from './contact/contact.component';
     HomeComponent,
     FooterComponent,
     AjouterPanierComponent,
+    AfficherPanierComponent,
+    ValiderCommandeComponent,
     AdminLoginComponent,
     AfficherPanierComponent,
     GestionClientComponent,
@@ -61,6 +66,8 @@ import { ContactComponent } from './contact/contact.component';
     GestionProduitComponent,
     GestionProduitEditComponent,
     ContactComponent,
+    AdminCommandeComponent,
+    AdminCommandeIdComponent,
   ],
   imports: [
     BrowserModule,
