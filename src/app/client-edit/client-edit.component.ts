@@ -14,14 +14,13 @@ export class ClientEditComponent implements OnInit {
   context = 0; // 0 => profil | 1 => commandes;
 
   id: number;
-  client: Client = {
+  client: any = {
     id: 1,
     nom: '',
     prenom: '',
     pass: '',
     adresse: '',
     email: '',
-    commandes: [],
     version: 0,
   };
   message = '';

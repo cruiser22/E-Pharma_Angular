@@ -34,6 +34,7 @@ import { GestionProduitEditComponent } from './gestion-produit-edit/gestion-prod
 import { ContactComponent } from './contact/contact.component';
 import { AdminCommandeComponent } from './admin-commande/admin-commande.component';
 import { AdminCommandeIdComponent } from './admin-commande-id/admin-commande-id.component';
+import { ClientAfficherCommandesComponent } from './client-afficher-commandes/client-afficher-commandes.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { AdminCommandeIdComponent } from './admin-commande-id/admin-commande-id.
     ContactComponent,
     AdminCommandeComponent,
     AdminCommandeIdComponent,
+    ClientAfficherCommandesComponent,
   ],
   imports: [
     BrowserModule,

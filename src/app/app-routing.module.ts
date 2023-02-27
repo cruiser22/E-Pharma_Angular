@@ -21,6 +21,7 @@ import { GestionProduitEditComponent } from './gestion-produit-edit/gestion-prod
 import { ContactComponent } from './contact/contact.component';
 import { AdminCommandeComponent } from './admin-commande/admin-commande.component';
 import { AdminCommandeIdComponent } from './admin-commande-id/admin-commande-id.component';
+import { ClientAfficherCommandesComponent } from './client-afficher-commandes/client-afficher-commandes.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -36,13 +37,12 @@ const routes: Routes = [
   { path: 'reset', component: ResetPasswordComponent },
   { path: 'admin/clients', component: GestionClientComponent },
   { path: 'admin/clients/:id', component: GestionClientEditComponent },
+  { path: 'profil/commandes/:id', component: ClientAfficherCommandesComponent },
   { path: 'about', component: AProposComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'checkout', component: ValiderCommandeComponent },
-
   { path: 'admin/commandes', component: AdminCommandeComponent },
   { path: 'admin/commandes/:id', component: AdminCommandeIdComponent },
-
   { path: 'admin/produits', component: GestionProduitComponent },
   { path: 'admin/produits/:id', component: GestionProduitEditComponent },
 ];
