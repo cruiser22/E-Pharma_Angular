@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
+import { Commande } from '../commande';
 import { Ligne } from '../ligne';
 import { Produit } from '../produit';
 
 @Component({
-  selector: 'app-afficher-panier',
-  templateUrl: './afficher-panier.component.html',
-  styleUrls: ['./afficher-panier.component.css']
+  selector: 'app-valider-commande',
+  templateUrl: './valider-commande.component.html',
+  styleUrls: ['./valider-commande.component.css']
 })
-export class AfficherPanierComponent {
+export class ValiderCommandeComponent {
   lignes: Array<Ligne> = [];
 
   constructor() {}
@@ -17,5 +18,8 @@ export class AfficherPanierComponent {
     if (str != null) {
       this.lignes = JSON.parse(str);
     }
+    let commande = new Commande;
+    commande.lignes = this.lignes;
+    //commande.
   }
 }
