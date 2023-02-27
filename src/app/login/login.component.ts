@@ -14,7 +14,11 @@ export class LoginComponent {
 
   constructor(private srv: SrvClientService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (localStorage.getItem('client')) {
+      this.router.navigate(['/profil']);
+    }
+  }
 
   login() {
     this.srv
