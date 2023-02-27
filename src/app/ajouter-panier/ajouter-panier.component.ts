@@ -11,6 +11,7 @@ export class AjouterPanierComponent {
   produits: Array<Produit> = [];
   liste: any;
   nvProduit: Produit;
+  lignes;
 
   constructor(private srv: SrvProduitService) {}
 

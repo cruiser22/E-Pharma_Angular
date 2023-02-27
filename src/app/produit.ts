@@ -4,6 +4,6 @@ export class Produit {
     description:string;
     prix:number;
     image:string;
-    categorie:string;
+    categorie:number;
     version:number;
 }

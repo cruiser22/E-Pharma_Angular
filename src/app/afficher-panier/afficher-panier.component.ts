@@ -26,7 +26,6 @@ export class AfficherPanierComponent {
     let str: string = sessionStorage.getItem('panier');
     this.total = 0;
     if (str != null) {
-      this.lignes = JSON.parse(str);
       this.produits = JSON.parse(str);
       for (let p of this.produits) {
         this.total += p.total;
