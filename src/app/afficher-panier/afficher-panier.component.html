@@ -1,4 +1,4 @@
-<div class="container mx-auto min-h-[80vh]">
+<div class="container py-5 mx-auto min-h-[80vh]">
   <div
     *ngIf="produits.length == 0"
     class="flex items-center justify-center w-full h-full"
@@ -24,25 +24,25 @@
         <td class="px-5 py-2">
           <div class="w-20 h-20 rounded-md">
             <img
-              src="{{ imgUrl }}/{{ p.image }}"
+              src="{{ imgUrl }}/{{ p.produit.image }}"
               class="object-contain w-full h-full"
             />
           </div>
         </td>
         <td class="px-5 py-2">
-          {{ p.nom }}
+          {{ p.produit.nom }}
         </td>
         <td class="px-5 py-2">
           <div class="max-w-[200px] truncate">
-            {{ p.description }}
+            {{ p.produit.description }}
           </div>
         </td>
-        <td class="px-5 py-2">{{ p.prix }} €</td>
+        <td class="px-5 py-2">{{ p.produit.prix }} €</td>
         <td class="px-5 py-2">{{ p.total }} €</td>
         <td class="px-5 py-2">
           <button
             class="px-3 py-1 text-xl font-medium text-center text-white rounded-lg bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300"
-            (click)="enlever(p.id, 1)"
+            (click)="enlever(p.produit.id, 1)"
           >
             -
           </button>
@@ -55,7 +55,7 @@
           />
           <button
             class="px-3 py-1 text-xl font-medium text-center text-white rounded-lg bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300"
-            (click)="ajouter(p.id, 1)"
+            (click)="ajouter(p.produit.id, 1)"
           >
             +
           </button>
@@ -66,20 +66,26 @@
       <h2 class="text-2xl font-semibold md:text-3xl">Recapitulatif</h2>
       <table>
         <tr>
-          <td>Sous-total:</td>
-          <td>{{ total }} €</td>
+          <td class="pr-5">Sous-total:</td>
+          <td class="pr-5">{{ total }} €</td>
         </tr>
-        <tr>
-          <div class="text-gray-700">Livraison: 0 €</div>
+        <tr class="pb-8">
+          <td>Livraison:</td>
+          <td>0 €</td>
         </tr>
       </table>
       <div class="space-y-2">
         <hr />
-        <div class="text-3xl font-semibold text-gray-700">
-          Total: {{ total }} €
+        <div class="pt-5 text-3xl font-semibold">
+          <span class="pr-3"> Total: </span>
+          {{ total }} €
         </div>
         <div>
-          <button>Procedez au paiement</button>
+          <button
+            class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+          >
+            Procedez au paiement
+          </button>
         </div>
       </div>
     </div>

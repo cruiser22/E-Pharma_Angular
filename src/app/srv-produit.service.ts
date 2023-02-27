@@ -43,11 +43,10 @@ export class SrvProduitService {
 
   enleverLigne(id, quantite, produits) {
     for (let p of produits) {
-      if (p.id === id) {
+      if (p.produit.id === id) {
         if (p.quantite > quantite) {
-          console.log('OK');
           p.quantite -= quantite;
-          p.total = p.prix * p.quantite;
+          p.total = p.produit.prix * p.quantite;
           console.log(p);
           return;
         }
@@ -58,14 +57,14 @@ export class SrvProduitService {
 
   ajouterLigne(produit, quantite, produits) {
     for (let p of produits) {
-      if (p.id === produit.id) {
+      if (p.produit.id === produit.id) {
         p.quantite += quantite;
-        p.total = p.prix * p.quantite;
+        p.total = p.produit.prix * p.quantite;
         return;
       }
     }
     produits.push({
-      ...produit,
+      produit: produit,
       quantite: quantite,
       total: produit.prix * quantite,
     });
