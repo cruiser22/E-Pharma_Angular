@@ -31,6 +31,7 @@ import { AProposComponent } from './a-propos/a-propos.component';
 import { GestionProduitComponent } from './gestion-produit/gestion-produit.component';
 import { GestionProduitEditComponent } from './gestion-produit-edit/gestion-produit-edit.component';
 import { ContactComponent } from './contact/contact.component';
+import { AdminCommandeComponent } from './admin-commande/admin-commande.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { ContactComponent } from './contact/contact.component';
     GestionProduitComponent,
     GestionProduitEditComponent,
     ContactComponent,
+    AdminCommandeComponent,
   ],
   imports: [
     BrowserModule,
