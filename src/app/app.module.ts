@@ -33,6 +33,7 @@ import { GestionProduitComponent } from './gestion-produit/gestion-produit.compo
 import { GestionProduitEditComponent } from './gestion-produit-edit/gestion-produit-edit.component';
 import { ContactComponent } from './contact/contact.component';
 import { AdminCommandeComponent } from './admin-commande/admin-commande.component';
+import { AdminCommandeIdComponent } from './admin-commande-id/admin-commande-id.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { AdminCommandeComponent } from './admin-commande/admin-commande.componen
     GestionProduitEditComponent,
     ContactComponent,
     AdminCommandeComponent,
+    AdminCommandeIdComponent,
   ],
   imports: [
     BrowserModule,

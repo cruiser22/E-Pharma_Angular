@@ -1,0 +1,44 @@
+<p>admin-commande-id works!</p>
+
+<app-admin-navbar></app-admin-navbar>
+<div class="flex-flex-col space-y-10 w-full">
+  <div class="flex flex-col space-y-4 w-full">
+    <h1
+      class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl"
+    >
+     Détails de la commande
+    </h1>
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="w-full text-sm text-left text-gray-500">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+          <tr>
+            <th scope="col" class="px-6 py-3">Id</th>
+            <th scope="col" class="px-6 py-3">Prix Total</th>
+            <th scope="col" class="px-6 py-3">Nom</th>
+            <th scope="col" class="px-6 py-3">Prenom</th>
+            <th scope="col" class="px-6 py-3">Adresse</th>
+            <th scope="col" class="px-6 py-3">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of commandes" class="bg-white border-b">
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+            >
+              {{ c.id }}
+            </th>
+            <td class="px-6 py-4">{{ c.client.email }}</td>
+            <td class="px-6 py-4">{{ c.client.nom }}</td>
+            <td class="px-6 py-4">{{ c..client.prenom }}</td>
+            <td class="px-6 py-4">{{ c.client.adresse }}</td>
+            <td class="px-6 py-4">{{ c.client.adresse }}</td>
+            <td class="px-6 py-4">
+            
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

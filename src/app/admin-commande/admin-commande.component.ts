@@ -11,7 +11,7 @@ export class AdminCommandeComponent {
 
 
 stateAdd = { error: false, message: '' };
-commandes: Commande[] | any;
+commande= new Commande;
 constructor(private srv: SrvCommandeService) {}
 
 ngOnInit() {
@@ -21,7 +21,7 @@ ngOnInit() {
 
 async getCommande() {
   try {
-    this.commandes = await this.srv.getliste();
+    this.commande = await this.srv.getcommande();
   } catch (error) {
     console.log(error);
   }

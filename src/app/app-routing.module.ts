@@ -20,6 +20,7 @@ import { GestionProduitComponent } from './gestion-produit/gestion-produit.compo
 import { GestionProduitEditComponent } from './gestion-produit-edit/gestion-produit-edit.component';
 import { ContactComponent } from './contact/contact.component';
 import { AdminCommandeComponent } from './admin-commande/admin-commande.component';
+import { AdminCommandeIdComponent } from './admin-commande-id/admin-commande-id.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'about', component: AProposComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'admin/commandes', component: AdminCommandeComponent },
+  { path: 'admin/commandes/:id', component: AdminCommandeIdComponent },
   
   { path: 'admin/produits', component: GestionProduitComponent },
   { path: 'admin/produits/:id', component: GestionProduitEditComponent },
