@@ -38,7 +38,6 @@ export class AjouterPanierComponent {
     // Si non-existant, le créer
     if (!exist) {
       let ligne = new Ligne;
-      ligne.id = this.lignes.length + 1;
       ligne.produit = nvProduit;
       ligne.quantite = 1;
       this.lignes.push(ligne);

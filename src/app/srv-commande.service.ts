@@ -6,8 +6,21 @@ import { Injectable } from '@angular/core';
 })
 export class SrvCommandeService {
   cmd: any
+  lst: any;
 
   constructor(private http: HttpClient) { }
+
+  getliste() {
+    return this.http
+      .get('http://localhost:8080/api/produit')
+      .toPromise()
+      .then((res) => {
+        this.lst = res;
+        return this.lst;
+        // code here is executed on success
+      })
+      .catch();
+  }
 
   saveCommande(commande) {
     return this.http.post('http://localhost:8080/api/commande',commande,{
