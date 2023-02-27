@@ -42,7 +42,13 @@ const routes: Routes = [
 
   { path: 'admin/commandes', component: AdminCommandeComponent },
   { path: 'admin/commandes/:id', component: AdminCommandeIdComponent },
+<<<<<<< HEAD
+  { path: 'admin/login', component: AdminLoginComponent }, 
+  { path: 'admin', component: AdminComponent }, 
+  
+=======
 
+>>>>>>> 587d2cd6326ea75b03b425e06dce964f90be30dd
   { path: 'admin/produits', component: GestionProduitComponent },
   { path: 'admin/produits/:id', component: GestionProduitEditComponent },
 ];

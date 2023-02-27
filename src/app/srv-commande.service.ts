@@ -25,9 +25,9 @@ export class SrvCommandeService {
       .catch();
   }
 
-  getcommande() {
+  getCommande(id) {
     return this.http
-      .get('http://localhost:8080/api/commande')
+      .get('http://localhost:8080/api/commande/'+id)
       .toPromise()
       .then((res) => {
         this.cmd = res;
