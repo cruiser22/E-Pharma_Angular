@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { Commande } from '../commande';
 import { SrvCommandeService } from '../srv-commande.service';
 
@@ -9,10 +10,12 @@ import { SrvCommandeService } from '../srv-commande.service';
   styleUrls: ['./client-afficher-commandes.component.css'],
 })
 export class ClientAfficherCommandesComponent {
+  imgUrl;
   constructor(private route: ActivatedRoute, private srv: SrvCommandeService) {}
   commande: Commande;
 
   ngOnInit() {
+    this.imgUrl = `${environment.apiUrl}/image`;
     let id: number;
     this.route.params.subscribe((params) => {
       id = params['id'];
@@ -24,6 +27,7 @@ export class ClientAfficherCommandesComponent {
   async getCommande(id) {
     try {
       this.commande = await this.srv.getCommande(id);
+      console.log(this.commande);
     } catch (error) {
       console.log(error);
     }

@@ -1,1 +1,55 @@
-<p>client-afficher-commandes works!</p>
+<div class="container mx-auto flex flex-col py-3 min-h-[65vh]">
+  <table class="w-full text-center">
+    <thead class="text-white rounded-lg bg-primary-500">
+      <tr class="text-center">
+        <td class="p-8 px-5"></td>
+        <td class="p-8 px-5">Nom</td>
+        <td class="p-8 px-5">Description</td>
+        <td class="p-8 px-5">Unité</td>
+        <td class="p-8 px-5">Total</td>
+        <td class="p-8 px-5">Quantité</td>
+      </tr>
+    </thead>
+    <tr *ngFor="let p of commande.lignes">
+      <td class="px-5 py-2">
+        <div class="w-20 h-20 rounded-md">
+          <img
+            src="{{ imgUrl }}/{{ p.produit.image }}"
+            class="object-contain w-full h-full"
+          />
+        </div>
+      </td>
+      <td class="px-5 py-2">
+        {{ p.produit.nom }}
+      </td>
+      <td class="px-5 py-2">
+        <div class="max-w-[200px] truncate">
+          {{ p.produit.description }}
+        </div>
+      </td>
+      <td class="px-5 py-2">{{ p.produit.prix }} €</td>
+      <td class="px-5 py-2">{{ p.produit.prix * p.quantite }} €</td>
+      <td class="px-5 py-2">{{ p.quantite }}</td>
+    </tr>
+  </table>
+  <div class="border-[1px] border-primary-200 w-full p-5 space-y-8">
+    <h2 class="text-2xl font-semibold md:text-3xl">Recapitulatif</h2>
+    <table>
+      <tr>
+        <td class="pr-5">Sous-total:</td>
+        <td class="pr-5">{{ commande.prixTotal }} €</td>
+      </tr>
+      <tr class="pb-8">
+        <td>Livraison:</td>
+        <td>0 €</td>
+      </tr>
+    </table>
+    <div class="space-y-2">
+      <hr />
+      <div class="pt-5 text-3xl font-semibold">
+        <span class="pr-3"> Total: </span>
+        {{ commande.prixTotal }} €
+      </div>
+    </div>
+  </div>
+</div>
