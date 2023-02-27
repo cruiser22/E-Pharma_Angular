@@ -1,9 +1,9 @@
 <div class="h-[80vh] relative">
   <div
-    class="relative z-10 flex items-center justify-center h-full p-2 flex-col gap-8"
+    class="relative z-10 flex flex-col items-center justify-center h-full gap-8 p-2"
   >
     <p
-      class="text-white font-semibold text-4xl md:w-2/3 text-center md:text-5xl lg:text-6xl lg:leading-normal"
+      class="text-4xl font-semibold text-center text-white md:w-2/3 md:text-5xl lg:text-6xl lg:leading-normal"
     >
       Trouvez les soins dont vous avez besoin en un clic avec notre
       <span class="text-primary-500">pharmacie</span> en ligne de
@@ -24,17 +24,17 @@
 
 <div class="w-full bg-primary-600 md:h-[60vh] flex flex-col md:flex-row">
   <div class="w-full h-1/2 md:w-1/2 md:h-full">
-    <img src="/assets/img/carousel3.jpg" class="object-cover h-full w-full" />
+    <img src="/assets/img/carousel3.jpg" class="object-cover w-full h-full" />
   </div>
   <div
-    class="flex flex-col mt-5 md:p-10 gap-8 w-100 p-5 md:mt-0 md:w-1/2 md:items-left md:justify-center"
+    class="flex flex-col gap-8 p-5 mt-5 md:p-10 w-100 md:mt-0 md:w-1/2 md:items-left md:justify-center"
   >
     <h2
-      class="text-4xl text-center md:text-left lg:text-6xl font-semibold uppercase tracking-wide text-white"
+      class="text-4xl font-semibold tracking-wide text-center text-white uppercase md:text-left lg:text-6xl"
     >
       Pourquoi EPHARMA?
     </h2>
-    <p class="leading-relaxed text-white text-2xl">
+    <p class="text-2xl leading-relaxed text-white">
       Epharma est une pharmacie en ligne fiable et pratique, proposant une large
       sélection de produits de santé à des prix compétitifs, avec une livraison
       rapide et un service clientèle de qualité. Achetez en toute confiance avec
@@ -42,69 +42,71 @@
     </p>
   </div>
 </div>
-<div class="container mx-auto flex items-center justify-evenly pt-20 p-10">
-  <div class="w-40 h-40 flex flex-col items-center justify-center gap-3">
+<div class="container flex items-center p-10 pt-20 mx-auto justify-evenly">
+  <div class="flex flex-col items-center justify-center w-40 h-40 gap-3">
     <img src="/assets/icons/shipped.png" class="object-contain w-full h-full" />
-    <p class="text-center font-semibold uppercase text-xl">Livraison rapide</p>
+    <p class="text-xl font-semibold text-center uppercase">Livraison rapide</p>
   </div>
-  <div class="w-40 h-40 flex flex-col items-center justify-center gap-3">
+  <div class="flex flex-col items-center justify-center w-40 h-40 gap-3">
     <img
       src="/assets/icons/customer-service.png"
       class="object-contain w-full h-full"
     />
-    <p class="text-center font-semibold uppercase text-xl">Support 24/7</p>
+    <p class="text-xl font-semibold text-center uppercase">Support 24/7</p>
   </div>
-  <div class="w-40 h-40 flex flex-col items-center justify-center gap-3">
+  <div class="flex flex-col items-center justify-center w-40 h-40 gap-3">
     <img src="/assets/icons/advice.png" class="object-contain w-full h-full" />
-    <p class="text-center font-semibold uppercase text-xl">
+    <p class="text-xl font-semibold text-center uppercase">
       Conseils et informations
     </p>
   </div>
 </div>
 <div
-  class="container mx-auto flex flex-col gap-10 items-center justify-center py-20"
+  class="container flex flex-col items-center justify-center gap-10 py-20 mx-auto"
 >
-  <p class="font-serif italic text-primary-500 text-xl md:text-3xl">
+  <p class="font-serif text-xl italic text-primary-500 md:text-3xl">
     Nouveautées
   </p>
-  <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-10">
+  <h2 class="mb-10 text-3xl font-bold sm:text-4xl md:text-5xl">
     Nos derniers produits
   </h2>
-  <div class="grid lg:grid-cols-3 gap-16">
+  <div class="grid gap-16 lg:grid-cols-3">
     <div
       *ngFor="let p of produits"
       class="flex flex-col items-center justify-center border-[1px] border-primary-200 rounded-md p-5 hover:scale-105 transition ease-in-out duration-300 hover:cursor-pointer"
     >
-      <div class="h-64 w-64">
-        <img
-          src="assets/img/produits/{{ p.image }}"
-          class="w-full h-full object-cover"
-        />
-      </div>
-      <h4 class="uppercase font-medium text-xl mb-5">{{ p.nom }}</h4>
-      <p class="font-medium text-xl text-primary-500">{{ p.prix }} €</p>
+      <a routerLink="shop/{{ p.id }}">
+        <div class="w-64 h-64">
+          <img
+            src="{{ imgUrl }}/{{ p.image }}"
+            class="object-cover w-full h-full"
+          />
+        </div>
+      </a>
+      <h4 class="mb-5 text-xl font-medium uppercase">{{ p.nom }}</h4>
+      <p class="text-xl font-medium text-primary-500">{{ p.prix }} €</p>
     </div>
   </div>
 </div>
-<div class="w-full bg-primary-600 text-white">
+<div class="w-full text-white bg-primary-600">
   <div
-    class="container mx-auto flex flex-col gap-10 items-center justify-center py-20"
+    class="container flex flex-col items-center justify-center gap-10 py-20 mx-auto"
   >
-    <p class="font-serif italic text-xl md:text-3xl">Testimoniaux</p>
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-10">
+    <p class="font-serif text-xl italic md:text-3xl">Testimoniaux</p>
+    <h2 class="mb-10 text-3xl font-bold sm:text-4xl md:text-5xl">
       Des clients satisfaits
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
       <blockquote
         *ngFor="let t of testimoniaux"
-        class="p-8 w-full flex flex-col text-center items-center justify-center md:items-start md:flex-start md:text-left"
+        class="flex flex-col items-center justify-center w-full p-8 text-center md:items-start md:flex-start md:text-left"
       >
         <div
           class="flex flex-col items-center justify-center gap-4 md:flex-row"
         >
           <img
             src="/assets/img/ratings/{{ t.image }}"
-            class="h-16 w-16 rounded-full object-cover"
+            class="object-cover w-16 h-16 rounded-full"
           />
 
           <div class="text">

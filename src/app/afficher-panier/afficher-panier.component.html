@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <hr>
 <table>
     <tr *ngFor="let l of lignes">
@@ -22,3 +23,98 @@
     </tr>
 </table>
 <hr>
+=======
+<div class="container py-5 mx-auto min-h-[80vh]">
+  <div
+    *ngIf="produits.length == 0"
+    class="flex items-center justify-center w-full h-full"
+  >
+    <p class="text-3xl font-semibold md:text-2xl">
+      Votre panier est vide ! Choisissez un article dans notre
+      <a routerLink="/shop" class="underline text-primary-600">boutique</a>
+    </p>
+  </div>
+  <div *ngIf="produits.length > 0">
+    <table class="w-full text-center">
+      <thead class="text-white rounded-lg bg-primary-500">
+        <tr class="text-center">
+          <td class="p-8 px-5"></td>
+          <td class="p-8 px-5">Nom</td>
+          <td class="p-8 px-5">Description</td>
+          <td class="p-8 px-5">Unité</td>
+          <td class="p-8 px-5">Total</td>
+          <td class="p-8 px-5">Quantité</td>
+        </tr>
+      </thead>
+      <tr *ngFor="let p of produits">
+        <td class="px-5 py-2">
+          <div class="w-20 h-20 rounded-md">
+            <img
+              src="{{ imgUrl }}/{{ p.produit.image }}"
+              class="object-contain w-full h-full"
+            />
+          </div>
+        </td>
+        <td class="px-5 py-2">
+          {{ p.produit.nom }}
+        </td>
+        <td class="px-5 py-2">
+          <div class="max-w-[200px] truncate">
+            {{ p.produit.description }}
+          </div>
+        </td>
+        <td class="px-5 py-2">{{ p.produit.prix }} €</td>
+        <td class="px-5 py-2">{{ p.total }} €</td>
+        <td class="px-5 py-2">
+          <button
+            class="px-3 py-1 text-xl font-medium text-center text-white rounded-lg bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300"
+            (click)="enlever(p.produit.id, 1)"
+          >
+            -
+          </button>
+          <input
+            type="number"
+            class="text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 w-20 text-center p-2.5 mx-2"
+            min="1"
+            [(ngModel)]="p.quantite"
+            readonly
+          />
+          <button
+            class="px-3 py-1 text-xl font-medium text-center text-white rounded-lg bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300"
+            (click)="ajouter(p.produit.id, 1)"
+          >
+            +
+          </button>
+        </td>
+      </tr>
+    </table>
+    <div class="border-[1px] border-primary-200 w-full p-5 space-y-8">
+      <h2 class="text-2xl font-semibold md:text-3xl">Recapitulatif</h2>
+      <table>
+        <tr>
+          <td class="pr-5">Sous-total:</td>
+          <td class="pr-5">{{ total }} €</td>
+        </tr>
+        <tr class="pb-8">
+          <td>Livraison:</td>
+          <td>0 €</td>
+        </tr>
+      </table>
+      <div class="space-y-2">
+        <hr />
+        <div class="pt-5 text-3xl font-semibold">
+          <span class="pr-3"> Total: </span>
+          {{ total }} €
+        </div>
+        <div>
+          <button
+            class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+          >
+            Procedez au paiement
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+>>>>>>> 408cf162b4fd4d39eadb65ecea1d13cc5c95924e

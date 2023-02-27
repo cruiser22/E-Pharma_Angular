@@ -1,9 +1,13 @@
-<div class="container p-4 mx-auto" *ngIf="client">
-  <div
-    class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0"
-  >
-    <div class="w-full bg-white rounded-lg shadow mt-0 sm:max-w-md xl:p-0">
-      <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+<div class="container p-4 mx-auto space-y-4 min-h-[65vh]" *ngIf="client">
+  <div class="flex flex-col items-center w-full justify-evenly md:flex-row">
+    <button (click)="afficher(0)">Profil</button>
+    <button (click)="afficher(1)">Commandes</button>
+    <button (click)="logout()">Deconnexion</button>
+  </div>
+  <hr class="mb-5" />
+  <div *ngIf="context == 0" class="flex flex-col gap-4 md:flex-row">
+    <div class="w-full mt-0 bg-white rounded-lg shadow xl:p-0">
+      <div class="w-full p-6 space-y-4 md:space-y-6 sm:p-8">
         <div>
           <h1
             class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl"
@@ -50,10 +54,21 @@
             class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             (click)="update()"
           >
-            MODIFIER MES INFORMATIONS
+            Modifier mes informations
           </button>
         </div>
-
+      </div>
+      <div></div>
+    </div>
+    <div class="w-full mt-0 bg-white rounded-lg shadow xl:p-0">
+      <div class="w-full p-6 space-y-4 md:space-y-6 sm:p-8">
+        <div>
+          <h1
+            class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl"
+          >
+            Mot de passe
+          </h1>
+        </div>
         <div>
           <label class="block mb-2 text-sm font-medium text-gray-900"
             >Mot de passe actuel:</label
@@ -89,18 +104,54 @@
 
         <div
           *ngIf="message"
-          class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+          class="relative px-4 py-3 text-red-700 bg-red-100 border border-red-400 rounded"
           role="alert"
         >
           <span class="block sm:inline">{{ message }}</span>
         </div>
-
-        <button
-          class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-          (click)="logout()"
-        >
-          LOGOUT
-        </button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="context == 1">
+    <div
+      *ngIf="client.commandes.length == 0"
+      class="relative px-4 py-3 text-red-700 bg-red-100 border border-red-400 rounded"
+      role="alert"
+    >
+      <p class="text-3xl font-semibold md:text-2xl">
+        Vous n'avez pas encore de commandes ! Choisissez un article dans notre
+        <a routerLink="/shop" class="underline text-primary-600">boutique</a>
+      </p>
+    </div>
+    <div class="flex flex-col w-full" *ngIf="client.commandes.length > 0">
+      <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left text-gray-500">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+            <tr>
+              <th scope="col" class="px-6 py-3">Id</th>
+              <th scope="col" class="px-6 py-3">Prix Total</th>
+              <th scope="col" class="px-6 py-3">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <tr *ngFor="let c of client.commandes" class="bg-white border-b">
+              <th
+                scope="row"
+                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+              >
+                {{ c.id }}
+              </th>
+              <td class="px-6 py-4">{{ c.prixTotal }} €</td>
+              <td class="px-6 py-4">
+                <a
+                  routerLink="/admin/commandes/{{ c.id }}"
+                  class="font-medium text-primary-600"
+                  >Modifier</a
+                >
+              </td>
+            </tr> -->
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

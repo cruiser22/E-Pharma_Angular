@@ -2,7 +2,7 @@
   <div class="container flex flex-wrap items-center justify-between mx-auto">
     <a [routerLink]="['/']" class="flex items-center">
       <span
-        class="self-center text-primary-500 text-2xl font-bold whitespace-nowrap"
+        class="self-center text-2xl font-bold text-primary-500 whitespace-nowrap"
         >EPHARMA.</span
       >
     </a>
@@ -29,11 +29,11 @@
         ></path>
       </svg>
     </button>
-    <div *ngIf="open" class="md:hidden flex flex-col w-full p-5">
+    <div *ngIf="open" class="flex flex-col w-full p-5 md:hidden">
       <li class="list-none">
         <a
           href="#"
-          class="uppercase block py-2 pl-3 pr-4 text-white bg-primary-700 rounded md:bg-transparent md:text-primary-700 md:p-0"
+          class="block py-2 pl-3 pr-4 text-white uppercase rounded bg-primary-700 md:bg-transparent md:text-primary-700 md:p-0"
           aria-current="page"
           >Boutique</a
         >
@@ -41,21 +41,21 @@
       <li class="list-none">
         <a
           href="http://localhost:4200/about"
-          class="uppercase block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
+          class="block py-2 pl-3 pr-4 text-gray-700 uppercase rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
           >A propos</a
         >
       </li>
       <li class="list-none">
         <a
           href="http://localhost:4200/contact"
-          class="uppercase block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
+          class="block py-2 pl-3 pr-4 text-gray-700 uppercase rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
           >Contact</a
         >
       </li>
       <li class="list-none">
         <a
           href="#"
-          class="uppercase block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
+          class="block py-2 pl-3 pr-4 text-gray-700 uppercase rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
           >Mon compte</a
         >
       </li>
@@ -67,7 +67,7 @@
         <li>
           <a
             [routerLink]="['/shop']"
-            class="uppercase block py-2 pl-3 pr-4 text-white bg-primary-700 rounded md:bg-transparent md:text-primary-700 md:p-0"
+            class="block py-2 pl-3 pr-4 text-white uppercase rounded bg-primary-700 md:bg-transparent md:text-primary-700 md:p-0"
             aria-current="page"
             >Boutique</a
           >
@@ -75,22 +75,29 @@
         <li>
           <a
             [routerLink]="['/about']"
-            class="uppercase block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
+            class="block py-2 pl-3 pr-4 text-gray-700 uppercase rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
             >A propos</a
           >
         </li>
         <li>
           <a
             [routerLink]="['/contact']"
-            class="uppercase block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
+            class="block py-2 pl-3 pr-4 text-gray-700 uppercase rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
             >Contact</a
           >
         </li>
         <li>
           <a
             [routerLink]="['/profil']"
-            class="uppercase block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
+            class="block py-2 pl-3 pr-4 text-gray-700 uppercase rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
             >Mon compte</a
+          >
+        </li>
+        <li>
+          <a
+            [routerLink]="['/afficherpanier']"
+            class="block py-2 pl-3 pr-4 text-gray-700 uppercase rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
+            >Panier</a
           >
         </li>
       </ul>
