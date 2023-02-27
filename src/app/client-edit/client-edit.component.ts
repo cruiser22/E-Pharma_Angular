@@ -11,6 +11,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./client-edit.component.css'],
 })
 export class ClientEditComponent implements OnInit {
+  context = 0; // 0 => profil | 1 => commandes;
+
   id: number;
   client: Client = {
     id: 1,
@@ -19,6 +21,7 @@ export class ClientEditComponent implements OnInit {
     pass: '',
     adresse: '',
     email: '',
+    commandes: [],
     version: 0,
   };
   message = '';
@@ -40,6 +43,10 @@ export class ClientEditComponent implements OnInit {
     }
 
     this.srv.getById(this.client.id);
+  }
+
+  afficher(context) {
+    this.context = context;
   }
 
   update() {
