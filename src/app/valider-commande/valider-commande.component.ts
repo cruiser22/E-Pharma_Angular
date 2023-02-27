@@ -1,47 +1,49 @@
 import { Component } from '@angular/core';
 import { Client } from '../client';
 import { Commande } from '../commande';
-import { Ligne } from '../ligne';
-import { Produit } from '../produit';
 import { SrvCommandeService } from '../srv-commande.service';
 
 @Component({
   selector: 'app-valider-commande',
   templateUrl: './valider-commande.component.html',
-  styleUrls: ['./valider-commande.component.css']
+  styleUrls: ['./valider-commande.component.css'],
 })
 export class ValiderCommandeComponent {
-  commande: Commande = new Commande;
+  commande: Commande = new Commande();
+  client;
+  panier;
+  total = 0;
+  lignes = [];
 
   constructor(private srvCommandeService: SrvCommandeService) {}
 
+  getClient() {
+    this.client = JSON.parse(localStorage.getItem('client'));
+  }
+
+  async validerCommande() {
+    const commande = await this.srvCommandeService.saveCommande({
+      client: this.client,
+      lignes: this.panier,
+      total: this.total,
+    });
+
+    if (commande) {
+      sessionStorage.removeItem('panier');
+    }
+  }
+
   ngOnInit(): void {
-    let lignes;
-    let str: string = sessionStorage.getItem("panier");
-    console.log("PANIER: " + str);//!\\_TEST_//!\\
+    this.getClient();
+    let str: string = sessionStorage.getItem('panier');
+    this.total = 0;
     if (str != null) {
-      lignes = JSON.parse(str);
     }
-    console.log("LIGNES: " + lignes);//!\\_TEST_//!\\
-
-    str = localStorage.getItem('client');
-    console.log("CLIENT: " + str);//!\\_TEST_//!\\
-    let client = new Client;
-    client = JSON.parse(str);
-    console.log("CLIENT: " + client);//!\\_TEST_//!\\
-
-    let liste = Array<Commande>;
-    this.srvCommandeService.getliste().then(x=>liste=x);
-
-    this.commande.prixTotal = 0;
-    for (let l of lignes) {
-      this.commande.prixTotal += l.produit.prix;
+    if (str != null) {
+      this.panier = JSON.parse(sessionStorage.getItem('panier'));
+      for (let p of this.panier) {
+        this.total += p.total;
+      }
     }
-    this.commande.lignes = lignes;
-    this.commande.client = client;
-    
-    console.log("TOTAL: " + this.commande.prixTotal);//!\\_TEST_//!\\
-    console.log("COMMANDE: " + JSON.stringify(this.commande));//!\\_TEST_//!\\
-    this.srvCommandeService.saveCommande(this.commande);
   }
 }
