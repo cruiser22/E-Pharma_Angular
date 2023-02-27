@@ -25,7 +25,7 @@ export class ValiderCommandeComponent {
     const commande = await this.srvCommandeService.saveCommande({
       client: this.client,
       lignes: this.panier,
-      total: this.total,
+      prixTotal: this.total,
     });
 
     if (commande) {

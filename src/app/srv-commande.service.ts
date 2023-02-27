@@ -2,33 +2,49 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SrvCommandeService {
-  cmd: any
+  cmd: any;
   lst: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getliste() {
+  saveCommande(commande) {
     return this.http
-      .get('http://localhost:8080/api/produit')
+      .post('http://localhost:8080/api/commande', commande, {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        }),
+      })
       .toPromise()
       .then((res) => {
-        this.lst = res;
-        return this.lst;
+        this.cmd = res;
+        return this.cmd;
+      })
+      .catch();
+  }
+
+  getcommande() {
+    return this.http
+      .get('http://localhost:8080/api/commande')
+      .toPromise()
+      .then((res) => {
+        this.cmd = res;
+        return this.cmd;
         // code here is executed on success
       })
       .catch();
   }
 
-  saveCommande(commande) {
-    return this.http.post('http://localhost:8080/api/commande',commande,{
-          headers: new HttpHeaders({
-            'Content-Type': 'application/json'
-          })}).toPromise().then((res) => {
+  getliste() {
+    return this.http
+      .get('http://localhost:8080/api/commande')
+      .toPromise()
+      .then((res) => {
         this.cmd = res;
         return this.cmd;
+        // code here is executed on success
       })
       .catch();
   }
