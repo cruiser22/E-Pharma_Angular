@@ -43,6 +43,8 @@ const routes: Routes = [
   { path: 'checkout', component: ValiderCommandeComponent },
   { path: 'admin/commandes', component: AdminCommandeComponent },
   { path: 'admin/commandes/:id', component: AdminCommandeIdComponent },
+  { path: 'admin/login', component: AdminLoginComponent },
+  { path: 'admin', component: AdminComponent },
   { path: 'admin/produits', component: GestionProduitComponent },
   { path: 'admin/produits/:id', component: GestionProduitEditComponent },
 ];
