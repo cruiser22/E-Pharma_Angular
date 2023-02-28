@@ -13,6 +13,7 @@ export class ClientAfficherCommandesComponent {
   imgUrl;
   constructor(private route: ActivatedRoute, private srv: SrvCommandeService) {}
   commande: Commande;
+  date;
 
   ngOnInit() {
     this.imgUrl = `${environment.apiUrl}/image`;
@@ -27,7 +28,10 @@ export class ClientAfficherCommandesComponent {
   async getCommande(id) {
     try {
       this.commande = await this.srv.getCommande(id);
-      console.log(this.commande);
+      let localDateTime = new Date(this.commande.date);
+      this.date = localDateTime.toLocaleDateString('fr-FR', {
+        dateStyle: 'medium',
+      });
     } catch (error) {
       console.log(error);
     }
