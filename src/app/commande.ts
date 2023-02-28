@@ -6,5 +6,6 @@ export class Commande {
   lignes: Array<Ligne>;
   prixTotal: number;
   client: Client;
+  date: Date;
   version: number;
 }
