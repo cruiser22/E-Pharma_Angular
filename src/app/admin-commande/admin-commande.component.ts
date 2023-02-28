@@ -24,4 +24,11 @@ export class AdminCommandeComponent {
       console.log(error);
     }
   }
+
+  getDate(date) {
+    let localDateTime = new Date(date);
+    return localDateTime.toLocaleDateString('fr-FR', {
+      dateStyle: 'medium',
+    });
+  }
 }

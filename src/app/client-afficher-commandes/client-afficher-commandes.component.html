@@ -34,7 +34,12 @@
   </table>
   <div class="border-[1px] border-primary-200 w-full p-5 space-y-8">
     <h2 class="text-2xl font-semibold md:text-3xl">Recapitulatif</h2>
+
     <table>
+      <tr>
+        <td class="pr-5">Date:</td>
+        <td class="pr-5">{{ date }}</td>
+      </tr>
       <tr>
         <td class="pr-5">Sous-total:</td>
         <td class="pr-5">{{ commande.prixTotal }} €</td>
