@@ -15,7 +15,7 @@ export class SrvProduitService {
     const formatter = new Intl.NumberFormat('fr-FR', {
       style: 'currency',
       currency: 'EUR',
-      });
+    });
   }
 
   ngOnInit() {}
@@ -51,7 +51,7 @@ export class SrvProduitService {
       if (p.produit.id === id) {
         if (p.quantite > quantite) {
           p.quantite -= quantite;
-          p.total = p.produit.prix * p.quantite;
+          p.total = Math.round(p.produit.prix * p.quantite * 100) / 100;
           console.log(p);
           return;
         }
