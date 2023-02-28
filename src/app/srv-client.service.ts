@@ -149,6 +149,17 @@ export class SrvClientService {
       });
     return res;
   }
+  
+  resetPassword(token: string, password: string) {
+    const url = `${environment.apiUrl}/clients`;
+    const data = { token, password };
+    return this.http.post(url, data).toPromise();
+  }
+  requestResetPassword(email: string) {
+    const url = `${environment.apiUrl}/clients`;
+    const data = { email };
+    return this.http.post(url, data).toPromise();
+  }
 }
 
 interface Login {
