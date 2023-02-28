@@ -13,6 +13,7 @@ export class AfficherProduitComponent {
   imgUrl: string;
   quantite = 1;
   id: number = 0;
+  
 
   constructor(
     private srv: SrvProduitService,
@@ -30,6 +31,7 @@ export class AfficherProduitComponent {
 
   incQuantite() {
     this.quantite++;
+ 
   }
 
   decQuantite() {
@@ -38,7 +40,10 @@ export class AfficherProduitComponent {
 
   async affiche(id: number) {
     try {
+      
       this.produit = await this.srv.getProduit(id);
+    
+      
       console.log(this.produit);
     } catch (error) {
       console.log(error);

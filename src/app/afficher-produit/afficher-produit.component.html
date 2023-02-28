@@ -41,7 +41,7 @@
       <div class="space-y-4">
         <h3 class="font-medium uppercase text-primary-500">Prix:</h3>
         <p class="text-5xl font-semibold text-primary-900">
-          {{ produit.prix * quantite }} €
+          {{ (produit.prix * quantite).toFixed(2) }} €
         </p>
         <button
           type="submit"
