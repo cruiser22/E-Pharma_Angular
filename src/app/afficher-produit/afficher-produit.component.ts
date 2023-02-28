@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { SrvProduitService } from '../srv-produit.service';
 
@@ -14,7 +14,11 @@ export class AfficherProduitComponent {
   quantite = 1;
   id: number = 0;
 
-  constructor(private srv: SrvProduitService, private route: ActivatedRoute) {}
+  constructor(
+    private srv: SrvProduitService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {

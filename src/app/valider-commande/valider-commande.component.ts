@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Client } from '../client';
 import { Commande } from '../commande';
 import { SrvClientService } from '../srv-client.service';
@@ -15,10 +16,12 @@ export class ValiderCommandeComponent {
   panier;
   total = 0;
   lignes = [];
+  stateCommande = { error: false, message: '' };
 
   constructor(
     private srvCommandeService: SrvCommandeService,
-    private srvClientService: SrvClientService
+    private srvClientService: SrvClientService,
+    private router: Router
   ) {}
 
   getClient() {
@@ -36,6 +39,8 @@ export class ValiderCommandeComponent {
       const client = await this.srvClientService.getById(this.client.id);
       sessionStorage.removeItem('panier');
       localStorage.setItem('client', JSON.stringify(client));
+      this.router.navigate(['profil/commandes/' + commande.id]);
+    } else {
     }
   }
 
