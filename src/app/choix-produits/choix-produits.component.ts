@@ -19,8 +19,8 @@ export class ChoixProduitsComponent {
     { id: 3, lib: 'Rhume et grippe' },
     { id: 4, lib: 'Anti-acide' },
     { id: 5, lib: 'Peau' },
-    { id: 6, lib: 'Cheveux' },
-    { id: 7, lib: 'Yeux' },
+    { id: 6, lib: 'Yeux' },
+    { id: 7, lib: 'Cheveux' },
   ];
 
   constructor(private srv: SrvProduitService) {}

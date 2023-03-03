@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { Categorie } from '../categorie';
 import { Produit } from '../produit';
+import { SrvCategorieService } from '../srv-categorie.service';
 import { SrvProduitService } from '../srv-produit.service';
 
 @Component({
@@ -10,9 +12,10 @@ import { SrvProduitService } from '../srv-produit.service';
   styleUrls: ['./gestion-produit-edit.component.css'],
 })
 export class GestionProduitEditComponent {
+  categories;
   previewImageSrc;
   imgUrl = `${environment.apiUrl}/image`;
-  produit: Produit | any;
+  produit;
   nom: string;
   stateUpdate = { error: false, message: null };
   stateDelete = { error: false, message: null };
@@ -21,6 +24,7 @@ export class GestionProduitEditComponent {
   constructor(
     private router: Router,
     private srv: SrvProduitService,
+    private categorieSrv: SrvCategorieService,
     private route: ActivatedRoute
   ) {}
 
@@ -31,6 +35,11 @@ export class GestionProduitEditComponent {
     });
 
     this.getProduit(id);
+    this.getCategories();
+  }
+
+  async getCategories() {
+    this.categories = await this.categorieSrv.getListe();
   }
 
   async updateImage(id) {
