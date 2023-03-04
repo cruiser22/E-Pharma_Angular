@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Categorie } from '../categorie';
 import { Produit } from '../produit';
+import { SrvCategorieService } from '../srv-categorie.service';
 import { SrvProduitService } from '../srv-produit.service';
 
 @Component({
@@ -13,26 +15,27 @@ export class ChoixProduitsComponent {
   imgUrl;
   filteredList: any;
   recherche = '';
-  categories = [
-    { id: 1, lib: 'Analgésique' },
-    { id: 2, lib: 'Soin de la peau' },
-    { id: 3, lib: 'Rhume et grippe' },
-    { id: 4, lib: 'Anti-acide' },
-    { id: 5, lib: 'Peau' },
-    { id: 6, lib: 'Yeux' },
-    { id: 7, lib: 'Cheveux' },
-  ];
+  categories;
 
-  constructor(private srv: SrvProduitService) {}
+  constructor(
+    private srv: SrvProduitService,
+    private srvCategories: SrvCategorieService
+  ) {}
 
   ngOnInit(): void {
     this.getListe();
+    this.getCategories();
     this.imgUrl = `${environment.apiUrl}/image`;
   }
 
   async getListe() {
     this.liste = await this.srv.getliste().then((x) => (this.liste = x));
     this.filteredList = this.liste;
+  }
+
+  async getCategories() {
+    this.categories = await this.srvCategories.getListe();
+    console.log(this.categories);
   }
 
   search(word) {

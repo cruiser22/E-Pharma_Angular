@@ -22,6 +22,8 @@ import { ContactComponent } from './contact/contact.component';
 import { AdminCommandeComponent } from './admin-commande/admin-commande.component';
 import { AdminCommandeIdComponent } from './admin-commande-id/admin-commande-id.component';
 import { ClientAfficherCommandesComponent } from './client-afficher-commandes/client-afficher-commandes.component';
+import { GestionCategoriesComponent } from './gestion-categories/gestion-categories.component';
+import { GestionCategoriesEditComponent } from './gestion-categories-edit/gestion-categories-edit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -47,6 +49,8 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'admin/produits', component: GestionProduitComponent },
   { path: 'admin/produits/:id', component: GestionProduitEditComponent },
+  { path: 'admin/categories', component: GestionCategoriesComponent },
+  { path: 'admin/categories/:id', component: GestionCategoriesEditComponent },
 ];
 
 @NgModule({

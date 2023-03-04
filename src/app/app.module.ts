@@ -35,6 +35,8 @@ import { ContactComponent } from './contact/contact.component';
 import { AdminCommandeComponent } from './admin-commande/admin-commande.component';
 import { AdminCommandeIdComponent } from './admin-commande-id/admin-commande-id.component';
 import { ClientAfficherCommandesComponent } from './client-afficher-commandes/client-afficher-commandes.component';
+import { GestionCategoriesComponent } from './gestion-categories/gestion-categories.component';
+import { GestionCategoriesEditComponent } from './gestion-categories-edit/gestion-categories-edit.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +72,8 @@ import { ClientAfficherCommandesComponent } from './client-afficher-commandes/cl
     AdminCommandeComponent,
     AdminCommandeIdComponent,
     ClientAfficherCommandesComponent,
+    GestionCategoriesComponent,
+    GestionCategoriesEditComponent,
   ],
   imports: [
     BrowserModule,
