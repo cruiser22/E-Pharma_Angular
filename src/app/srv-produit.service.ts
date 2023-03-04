@@ -11,7 +11,12 @@ export class SrvProduitService {
   lst: any;
   panier: any;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    const formatter = new Intl.NumberFormat('fr-FR', {
+      style: 'currency',
+      currency: 'EUR',
+    });
+  }
 
   ngOnInit() {}
 
@@ -46,7 +51,7 @@ export class SrvProduitService {
       if (p.produit.id === id) {
         if (p.quantite > quantite) {
           p.quantite -= quantite;
-          p.total = p.produit.prix * p.quantite;
+          p.total = Math.round(p.produit.prix * p.quantite * 100) / 100;
           console.log(p);
           return;
         }
@@ -59,17 +64,17 @@ export class SrvProduitService {
     for (let p of produits) {
       if (p.produit.id === produit.id) {
         p.quantite += quantite;
-        p.total = p.produit.prix * p.quantite;
+        // Round the total to 2 decimal places
+        p.total = Math.round(p.produit.prix * p.quantite * 100) / 100;
         return;
       }
     }
     produits.push({
       produit: produit,
       quantite: quantite,
-      total: produit.prix * quantite,
+      total: Math.round(produit.prix * quantite * 100) / 100,
     });
   }
-
   getliste() {
     return this.http
       .get('http://localhost:8080/api/produit')

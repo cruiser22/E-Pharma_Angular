@@ -1,0 +1,85 @@
+<div
+  class="container mx-auto flex flex-col md:flex-row py-3 min-h-[65vh] space-x-20"
+>
+  <app-admin-navbar></app-admin-navbar>
+  <div class="flex-flex-col space-y-10 w-full">
+    <div class="flex flex-col space-y-4 w-full">
+      <h1
+        class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl"
+      >
+        Liste des categories
+      </h1>
+      <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left text-gray-500">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+            <tr>
+              <th scope="col" class="px-6 py-3">Id</th>
+              <th scope="col" class="px-6 py-3">Nom</th>
+              <th scope="col" class="px-6 py-3">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let c of categories" class="bg-white border-b">
+              <th
+                scope="row"
+                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+              >
+                {{ c.id }}
+              </th>
+              <td class="px-6 py-4">{{ c.name }}</td>
+              <td class="px-6 py-4">
+                <a routerLink="{{ c.id }}" class="font-medium text-primary-600"
+                  >Modifier</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="flex flex-col space-y-4">
+      <h1
+        class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl"
+      >
+        Ajouter une categorie
+      </h1>
+      <div class="w-full bg-white rounded-lg shadow mt-0 xl:p-0">
+        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+          <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900"
+              >Nom:</label
+            >
+            <input
+              class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+              [(ngModel)]="categorie.name"
+              placeholder="Nom"
+              type="text"
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            (click)="addCategorie(categorie)"
+          >
+            Ajouter
+          </button>
+          <div
+            *ngIf="!stateAdd.error && stateAdd.message"
+            class="bg-green-100 border border-green-400 text-gred-700 px-4 py-3 rounded relative"
+            role="alert"
+          >
+            <span class="block sm:inline">{{ stateAdd.message }}</span>
+          </div>
+          <div
+            *ngIf="stateAdd.error"
+            class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+            role="alert"
+          >
+            <span class="block sm:inline">{{ stateAdd.message }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

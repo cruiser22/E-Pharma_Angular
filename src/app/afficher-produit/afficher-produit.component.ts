@@ -13,6 +13,7 @@ export class AfficherProduitComponent {
   imgUrl: string;
   quantite = 1;
   id: number = 0;
+  stateAdd = { error: false, message: '' };
 
   constructor(
     private srv: SrvProduitService,
@@ -39,6 +40,7 @@ export class AfficherProduitComponent {
   async affiche(id: number) {
     try {
       this.produit = await this.srv.getProduit(id);
+
       console.log(this.produit);
     } catch (error) {
       console.log(error);
@@ -48,9 +50,13 @@ export class AfficherProduitComponent {
   async ajouterPanier(id: number, quantite) {
     try {
       this.srv.ajouterPanier(id, quantite);
+      this.stateAdd.error = false;
+      this.stateAdd.message = 'Le produit a bien été ajouté au panier';
       console.log(JSON.parse(sessionStorage.getItem('panier')));
     } catch (error) {
       console.log(error);
+      this.stateAdd.error = false;
+      this.stateAdd.message = "Une erreur s'est produite";
     }
   }
 }

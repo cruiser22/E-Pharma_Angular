@@ -17,7 +17,6 @@
               <th scope="col" class="px-6 py-3">Nom</th>
               <th scope="col" class="px-6 py-3">Description</th>
               <th scope="col" class="px-6 py-3">Prix</th>
-              <th scope="col" class="px-6 py-3">Categorie</th>
               <th scope="col" class="px-6 py-3">Action</th>
             </tr>
           </thead>
@@ -34,7 +33,6 @@
                 {{ p.description }}
               </td>
               <td class="px-6 py-4">{{ p.prix }}</td>
-              <td class="px-6 py-4">{{ p.categorie }}</td>
               <td class="px-6 py-4">
                 <a routerLink="{{ p.id }}" class="font-medium text-primary-600"
                   >Modifier</a
@@ -104,11 +102,14 @@
             <label class="block mb-2 text-sm font-medium text-gray-900"
               >Categorie:</label
             >
-            <input
+            <select
               class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-              [(ngModel)]="produit.categorie"
-              placeholder="Categorie"
-            />
+              [(ngModel)]="produit.categorie.id"
+            >
+              <option *ngFor="let c of categories" [value]="c.id">
+                {{ c.name }}
+              </option>
+            </select>
           </div>
 
           <button

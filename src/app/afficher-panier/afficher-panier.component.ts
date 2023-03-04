@@ -30,12 +30,16 @@ export class AfficherPanierComponent {
       for (let p of this.produits) {
         this.total += p.total;
       }
+      // Format the total with 2 decimal places
+      this.total = Number(this.total.toFixed(2));
     }
   }
-
+  
   async ajouter(id, quantite) {
     await this.srv.ajouterPanier(id, quantite);
     this.getPanier();
+    // Format the total with 2 decimal places after adding a product
+    this.total = Number(this.total.toFixed(2));
   }
 
   async enlever(id, quantite) {

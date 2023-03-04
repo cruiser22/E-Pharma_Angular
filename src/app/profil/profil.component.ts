@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Client } from '../client';
 import { SrvClientService } from '../srv-client.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { SrvClientService } from '../srv-client.service';
   styleUrls: ['./profil.component.css'],
 })
 export class ProfilComponent {
-  client: any = null;
+  client: Client = null;
 
   constructor(private srv: SrvClientService, private router: Router) {}
 

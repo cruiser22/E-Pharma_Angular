@@ -41,7 +41,7 @@
       <div class="space-y-4">
         <h3 class="font-medium uppercase text-primary-500">Prix:</h3>
         <p class="text-5xl font-semibold text-primary-900">
-          {{ produit.prix * quantite }} €
+          {{ (produit.prix * quantite).toFixed(2) }} €
         </p>
         <button
           type="submit"
@@ -50,6 +50,13 @@
         >
           Ajouter au panier
         </button>
+        <div
+          *ngIf="!stateAdd.error && stateAdd.message"
+          class="relative px-4 py-3 bg-green-100 border border-green-400 rounded text-gred-700"
+          role="alert"
+        >
+          <span class="block sm:inline">{{ stateAdd.message }}</span>
+        </div>
       </div>
     </div>
   </div>

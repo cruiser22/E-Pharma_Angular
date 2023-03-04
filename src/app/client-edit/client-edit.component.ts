@@ -26,6 +26,7 @@ export class ClientEditComponent implements OnInit {
   message = '';
   currentPassword: string;
   newPassword: string;
+  stateAdd = { error: false, message: '' };
 
   constructor(
     private srv: SrvClientService,
@@ -54,7 +55,8 @@ export class ClientEditComponent implements OnInit {
   updatePassword() {
     // Vérifier que le mot de passe actuel est correct
     if (this.currentPassword !== this.client.pass) {
-      this.message = 'Mot de passe actuel incorrect.';
+      this.stateAdd.error = true;
+      this.stateAdd.message = 'Erreur lors de la mise à jour du mot de passe.';
       return;
     }
 
@@ -62,10 +64,14 @@ export class ClientEditComponent implements OnInit {
     this.client.pass = this.newPassword;
     this.srv.update(this.client.id, this.client).then(
       () => {
-        this.message = 'Mot de passe mis à jour avec succès.';
+        this.stateAdd.error = false;
+        this.stateAdd.message = 'Le mot de passe a bien été mis à jour.';
       },
       () => {
-        this.message = 'Erreur lors de la mise à jour du mot de passe.';
+        console.log(this.stateAdd);
+        this.stateAdd.error = true;
+        this.stateAdd.message =
+          'Erreur lors de la mise à jour du mot de passe.';
       }
     );
   }
